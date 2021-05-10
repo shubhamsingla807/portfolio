@@ -2,22 +2,23 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
+	font-weight: 100;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-
-@font-face {
+/* @import url("https://fonts.googleapis.com/css2?family=Montez&display=swap"); */
+/* @font-face {
 	font-family: "aprillia_script_testregular";
 	src: url("./aprillia_script_test-webfont.woff2") format("woff2"),
 		url("./aprillia_script_test-webfont.woff") format("woff");
 	font-weight: normal;
 	font-style: normal;
-}
+} */
 
 body {
 	margin: 0;
 	padding: 0;
-	font-family: "aprillia_script_testregular";
+	font-family: "Montez", cursive;
 	font-size: 1rem;
 }
 
@@ -31,6 +32,8 @@ body {
 	flex-direction: column;
 	position: absolute;
 	top: 0;
+	/* cursor: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/heart.png"),
+		auto; */
 }
 
 .section1 div {
@@ -39,30 +42,44 @@ body {
 
 .main-content {
 	color: white;
-	font-size: 2rem;
+	font-size: 2.5rem;
+	font-style: normal;
 	text-align: center;
-	line-height: 4rem;
-	letter-spacing: 0.3rem;
-}
-
-.svg {
-	/* margin-left: 140px; */
+	line-height: 5rem;
+	letter-spacing: 0.4rem;
+	word-spacing: normal;
 }
 
 .svg-container {
 	line-height: normal;
 	display: flex;
 	align-items: center;
+	margin: 30px;
 }
 
-.svg-container span {
-	/* margin: 0; */
+.traingle-container {
+	position: relative;
+}
+
+.traingle-container img {
+	position: absolute;
+	left: -70%;
+	top: -50%;
+	width: 200%;
+}
+
+.hard-container {
+	margin-left: 30px;
+	display: flex;
+	align-items: center;
 }
 
 .name-container {
 	font-family: "Poppins", sans-serif;
-	margin-left: 40px;
+	margin-left: 20px;
 	font-size: 1.5rem;
+	word-spacing: normal;
+	letter-spacing: 0.1rem;
 }
 
 .small {

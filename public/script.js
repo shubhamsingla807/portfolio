@@ -3,13 +3,17 @@ const canvas = document.querySelector("canvas");
 const c = canvas.getContext("2d");
 
 // cursor
-const cursor = {
+const mouse = {
 	x: 0,
 	y: 0,
+	dx: 0,
+	dy: 0,
+	r: 50,
 };
+
 window.addEventListener("mousemove", (e) => {
-	cursor.x = e.clientX / sizes.width - 0.5;
-	cursor.y = e.clientY / sizes.height - 0.5;
+	mouse.x = e.clientX;
+	mouse.y = e.clientY;
 });
 
 const sizes = {
@@ -20,8 +24,9 @@ const sizes = {
 canvas.width = sizes.width;
 canvas.height = sizes.height;
 
-let gravity = 1;
-let friction = 0.9;
+let W = canvas.width;
+let H = canvas.height;
+
 const colors = ["#2185C5", "#7ECEFD", "#FFF6E5", "#FF7F66"];
 
 // sizes
@@ -29,9 +34,6 @@ window.addEventListener("resize", () => {
 	sizes.width = window.innerWidth;
 	sizes.height = window.innerHeight;
 
-	// c.fillStyle = "#193ad5";
-	// c.fillRect(0, 0, sizes.width, sizes.height);
-	// drawFixedBalls();
 	canvas.width = sizes.width;
 	canvas.height = sizes.height;
 });
@@ -56,80 +58,97 @@ window.addEventListener("dblclick", (e) => {
 });
 
 class FixedBalls {
-	constructor(x, y, radius, color) {
+	constructor(x, y, r) {
 		this.x = x;
 		this.y = y;
-		this.radius = radius;
-		this.color = color;
+		this.r = r;
+		this.dx = 0;
+		this.dy = 0;
 	}
 
-	draw() {
-		c.beginPath();
-		c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
-		c.fillStyle = this.color;
-		c.fill();
-		c.closePath();
+	angleFromCenter(cx, cy, mx, my) {
+		const mAngle = Math.atan2(mx - cx, -my + cy);
+		return mAngle > 0 ? mAngle : Math.PI * 2 + mAngle;
+	}
+
+	circlePath(cx, cy, r, mx, my) {
+		const dist = Math.hypot(mx - cx, my - cy);
+		let path = "";
+		if (dist > r && dist < 3 * r) {
+			const angle = this.angleFromCenter(cx, cy, mx, my);
+			const delta = Math.acos(r / dist);
+
+			const p0x = cx + r * Math.sin(angle - delta);
+			const p0y = cy - r * Math.cos(angle - delta);
+			const p2x = cx + r * Math.sin(angle + delta);
+			const p2y = cy - r * Math.cos(angle + delta);
+			const anchorR = dist > r * 2 ? r * 4 - dist : dist;
+			const p1x = cx + anchorR * Math.sin(angle);
+			const p1y = cy - anchorR * Math.cos(angle);
+			path = `M ${p0x},${p0y} Q ${p1x},${p1y} ${p2x},${p2y}`;
+		}
+		return (
+			path +
+			`M ${cx},${cy - r} A ${r},${r} 1 1 1 ${cx},${
+				cy + r
+			} A ${r},${r} 1 1 1 ${cx},${cy - r} Z`
+		);
 	}
 }
 
-let ballArray = [];
+let balls = [];
 let fixedBalls = [];
 
+let grav = [0, -0.1];
+let gravity = 0.1;
+let friction = 0.7;
+
 class Ball {
-	constructor(x, y, radius, color, dx, dy) {
+	constructor(x, y, dx, dy, r) {
 		this.x = x;
 		this.y = y;
-		this.radius = radius;
-		this.color = color;
-		this.dy = dy;
 		this.dx = dx;
-		this.touched = 0;
+		this.dy = dy;
+		this.r = r;
+		this.color = "white";
 		this.id = Math.random();
+		this.touched = 0;
 	}
 
 	draw() {
-		c.beginPath();
-		c.arc(this.x, this.y, this.radius, 0, Math.PI * 2, false);
 		c.fillStyle = this.color;
+		c.beginPath();
+		c.arc(this.x, this.y, this.r, 0, 2 * Math.PI);
 		c.fill();
-		c.closePath();
 	}
 
 	kill() {
-		this.radius = 0;
-		ballArray = ballArray.filter((item) => item.id != this.id);
-		console.log("in kill", ballArray.length);
+		balls = balls.filter((item) => item.id != this.id);
 	}
 
 	update() {
-		if (this.y + this.radius + this.dy >= canvas.height) {
+		if (this.y + this.r + this.dy >= canvas.height) {
 			this.dy = -this.dy * friction;
 			this.touched += 1;
+
+			if (this.touched > 5) {
+				gsap.to(this, { duration: 0.5, r: 0 });
+				if (this.r <= 9) {
+					this.kill();
+				}
+			}
 		} else {
 			this.dy += gravity;
 		}
 
-		if (
-			this.x + this.radius + this.dx >= canvas.width ||
-			this.x - this.radius <= 0
-		) {
+		if (this.x + this.r + this.dx >= canvas.width || this.x - this.r <= 0) {
 			this.dx = -this.dx;
-		}
-
-		if (this.dx > 3) {
-			this.dx = randomIntFromRange(-2, 2);
-			console.log(this.dx, this.dy);
 		}
 
 		this.x += this.dx;
 		this.y += this.dy;
-
-		if (this.touched == 150) {
-			setTimeout(() => {
-				console.log("ordered to kill", this.touched);
-				this.kill();
-			}, 500);
-		}
+		this.dx += grav[0];
+		// this.dy -= grav[1];
 
 		this.draw();
 	}
@@ -144,97 +163,181 @@ function randomColor(colors) {
 }
 
 function drawFixedBalls() {
+	c.fillStyle = "#fff";
 	let circle1 = new FixedBalls(
 		sizes.width * 0.78,
 		sizes.height * 0.1,
-		sizes.width * 0.09,
-		"white"
+		sizes.width * 0.09
 	);
+	const path1 = circle1.circlePath(
+		sizes.width * 0.78,
+		sizes.height * 0.1,
+		sizes.width * 0.09,
+		mouse.x,
+		mouse.y
+	);
+
 	let circle2 = new FixedBalls(
 		sizes.width * 0.9,
 		sizes.height * 0.45,
-		sizes.width * 0.06,
-		"white"
+		sizes.width * 0.06
 	);
+	const path2 = circle2.circlePath(
+		sizes.width * 0.9,
+		sizes.height * 0.45,
+		sizes.width * 0.06,
+		mouse.x,
+		mouse.y
+	);
+
 	let circle3 = new FixedBalls(
-		sizes.width * 0.1,
+		sizes.width * 0.2,
 		sizes.height * 0.3,
-		sizes.width * 0.04,
-		"white"
+		sizes.width * 0.09
+	);
+	const path3 = circle3.circlePath(
+		sizes.width * 0.2,
+		sizes.height * 0.3,
+		sizes.width * 0.09,
+		mouse.x,
+		mouse.y
 	);
 	let circle4 = new FixedBalls(
 		sizes.width * 0.04,
 		sizes.height * 0.8,
-		sizes.width * 0.07,
-		"white"
+		sizes.width * 0.05
 	);
+	const path4 = circle4.circlePath(
+		sizes.width * 0.04,
+		sizes.height * 0.8,
+		sizes.width * 0.05,
+		mouse.x,
+		mouse.y
+	);
+	const p1 = new Path2D(path1);
+	c.fill(p1);
+	const p2 = new Path2D(path2);
+	c.fill(p2);
+	const p3 = new Path2D(path3);
+	c.fill(p3);
+	const p4 = new Path2D(path4);
+	c.fill(p4);
 
-	circle1.draw();
-	circle2.draw();
-	circle3.draw();
-	circle4.draw();
-	fixedBalls.push(circle1);
-	fixedBalls.push(circle2);
-	fixedBalls.push(circle3);
-	fixedBalls.push(circle4);
-}
-
-function init() {
-	setInterval(() => {
-		let radius = randomIntFromRange(20, 40);
-		let x = randomIntFromRange(radius, sizes.width);
-		let y = randomIntFromRange(radius, sizes.height / 2);
-		let dx = randomIntFromRange(-2, 2);
-		let dy = randomIntFromRange(-2, 2);
-		let color = randomColor(colors);
-		ballArray.push(new Ball(x, y, radius, color, dx, dy));
-	}, 1500);
-	for (let i = 0; i < 8; i++) {
-		let radius = randomIntFromRange(20, 40);
-		let x = randomIntFromRange(radius, sizes.width);
-		let y = randomIntFromRange(radius, sizes.height / 2);
-		let dx = randomIntFromRange(-2, 2);
-		let dy = randomIntFromRange(-2, 2);
-		let color = randomColor(colors);
-		ballArray.push(new Ball(x, y, radius, color, dx, dy));
+	if (fixedBalls.length == 0) {
+		fixedBalls.push(circle1);
+		fixedBalls.push(circle2);
+		fixedBalls.push(circle3);
+		fixedBalls.push(circle4);
 	}
 }
 
-let animationId;
-const tick = () => {
-	animationId = window.requestAnimationFrame(tick);
+function generateMore() {
+	setInterval(() => {
+		if (!document.hidden && balls.length < 10) {
+			let numberOfBalls = randomIntFromRange(3, 7);
+			for (let i = 0; i < numberOfBalls; i++) {
+				let radius = randomIntFromRange(10, 30);
+				let x = randomIntFromRange(radius, sizes.width);
+				let y = -radius;
+				let dx = randomIntFromRange(-0.5, 0.5);
+				let dy = randomIntFromRange(-0.5, 0.5);
+				balls.push(new Ball(x, y, dx, dy, radius));
+			}
+		}
+	}, 3000);
+}
 
+function init() {
+	let numberOfBalls = randomIntFromRange(3, 6);
+	for (let i = 0; i < numberOfBalls; i++) {
+		let radius = randomIntFromRange(10, 30);
+		let x = randomIntFromRange(radius, sizes.width);
+		let y = -radius;
+		let dx = randomIntFromRange(-0.5, 0.5);
+		let dy = randomIntFromRange(-0.5, 0.5);
+		balls.push(new Ball(x, y, dx, dy, radius));
+	}
+	generateMore();
+}
+
+function checkCollision(ballA, ballB) {
+	let rSum = ballA.r + ballB.r;
+	let dx = ballB.x - ballA.x;
+	let dy = ballB.y - ballA.y;
+
+	return [
+		rSum * rSum > dx * dx + dy * dy,
+		rSum - Math.sqrt(dx * dx + dy * dy),
+	];
+}
+
+function resolveCollision(ballA, ballB) {
+	let relVel = [ballB.dx - ballA.dx, ballB.dy - ballA.dy];
+	let norm = [ballB.x - ballA.x, ballB.y - ballA.y];
+	let mag = Math.sqrt(norm[0] * norm[0] + norm[1] * norm[1]);
+	norm = [norm[0] / mag, norm[1] / mag];
+
+	let velAlongNorm = relVel[0] * norm[0] + relVel[1] * norm[1];
+	if (velAlongNorm > 0) return;
+
+	let bounce = 0.7;
+	let j = -(1 + bounce) * velAlongNorm;
+	j /= 1 / ballA.r + 1 / ballB.r;
+
+	let impulse = [j * norm[0], j * norm[1]];
+	ballA.dx -= (1 / ballA.r) * impulse[0];
+	ballA.dy -= (1 / ballA.r) * impulse[1];
+}
+
+function adjustPositions(ballA, ballB, depth) {
+	//Inefficient implementation for now
+	const percent = 0.2;
+	const slop = 0.01;
+	let correction =
+		(Math.max(depth - slop, 0) / (1 / ballA.r + 1 / ballB.r)) * percent;
+
+	let norm = [ballB.x - ballA.x, ballB.y - ballA.y];
+	let mag = Math.sqrt(norm[0] * norm[0] + norm[1] * norm[1]);
+	norm = [norm[0] / mag, norm[1] / mag];
+	correction = [correction * norm[0], correction * norm[1]];
+	ballA.x -= (1 / ballA.r) * correction[0];
+	ballA.y -= (1 / ballA.r) * correction[1];
+}
+
+function animate() {
 	c.fillStyle = "#193ad5";
 	c.fillRect(0, 0, sizes.width, sizes.height);
 	drawFixedBalls();
-
-	ballArray.forEach((ball) => {
+	for (let ball of balls) {
 		ball.update();
-
-		fixedBalls.forEach((fixedBall) => {
-			const dist = Math.hypot(ball.x - fixedBall.x, ball.y - fixedBall.y);
-
-			if (
-				dist - ball.radius - fixedBall.radius <= 5 &&
-				dist - ball.radius - fixedBall.radius >= -ball.radius
-			) {
-				ball.dy = -ball.dy * friction;
-				// ball.dx = -ball.dx;
-				let bx = ball.x;
-				let by = ball.y;
-				let fx = fixedBall.x;
-				let fy = fixedBall.y;
-
-				let thita = -Math.atan2(fx - bx, by - fy);
-				ball.touched += 1;
-				ball.dx = thita;
-			} else if (dist - ball.radius - fixedBall.radius < -ball.radius) {
-				ball.kill();
+		for (let ball2 of balls) {
+			//Not the most efficient way to check every pair, but this is just a rough version
+			if (ball !== ball2) {
+				let collision = checkCollision(ball, ball2);
+				if (collision[0]) {
+					adjustPositions(ball, ball2, collision[1]);
+					resolveCollision(ball, ball2);
+				}
+			}
+		}
+		fixedBalls.forEach((fixedball) => {
+			let collision = checkCollision(ball, fixedball);
+			if (collision[0]) {
+				adjustPositions(ball, fixedball, collision[1]);
+				resolveCollision(ball, fixedball);
 			}
 		});
-	});
-};
+		// for mouse
+		let collision = checkCollision(ball, mouse);
+		if (collision[0]) {
+			adjustPositions(ball, mouse, collision[1]);
+			resolveCollision(ball, mouse);
+		}
+	}
 
-init();
+	requestAnimationFrame(animate);
+}
+
 drawFixedBalls();
-tick();
+init();
+animate();
