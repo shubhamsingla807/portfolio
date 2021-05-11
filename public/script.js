@@ -131,8 +131,8 @@ class Ball {
 			this.dy = -this.dy * friction;
 			this.touched += 1;
 
-			if (this.touched > 5) {
-				gsap.to(this, { duration: 0.5, r: 0 });
+			if (this.touched > 4) {
+				gsap.to(this, { duration: 0.2, r: 0 });
 				if (this.r <= 9) {
 					this.kill();
 				}
@@ -228,13 +228,19 @@ function drawFixedBalls() {
 		fixedBalls.push(circle2);
 		fixedBalls.push(circle3);
 		fixedBalls.push(circle4);
+	} else if (fixedBalls[0].x != circle1.x) {
+		fixedBalls = [];
+		fixedBalls.push(circle1);
+		fixedBalls.push(circle2);
+		fixedBalls.push(circle3);
+		fixedBalls.push(circle4);
 	}
 }
 
 function generateMore() {
 	setInterval(() => {
 		if (!document.hidden && balls.length < 10) {
-			let numberOfBalls = randomIntFromRange(3, 7);
+			let numberOfBalls = randomIntFromRange(3, 5);
 			for (let i = 0; i < numberOfBalls; i++) {
 				let radius = randomIntFromRange(10, 30);
 				let x = randomIntFromRange(radius, sizes.width);
@@ -304,6 +310,10 @@ function adjustPositions(ballA, ballB, depth) {
 	ballA.y -= (1 / ballA.r) * correction[1];
 }
 
+let image = new Image();
+image.onload = drawImage;
+image.src = "./public/sample.png";
+
 function animate() {
 	c.fillStyle = "#193ad5";
 	c.fillRect(0, 0, sizes.width, sizes.height);
@@ -321,6 +331,15 @@ function animate() {
 			}
 		}
 		fixedBalls.forEach((fixedball) => {
+			// if (
+			// 	mouse.x > fixedball.x - fixedball.r &&
+			// 	mouse.x < fixedball.x + fixedball.r &&
+			// 	mouse.y > fixedball.y - fixedball.r &&
+			// 	mouse.y < fixedball.y + fixedball.r
+			// ) {
+			// 	drawImage(fixedball);
+			// }
+
 			let collision = checkCollision(ball, fixedball);
 			if (collision[0]) {
 				adjustPositions(ball, fixedball, collision[1]);
@@ -334,10 +353,24 @@ function animate() {
 			resolveCollision(ball, mouse);
 		}
 	}
-
 	requestAnimationFrame(animate);
 }
 
 drawFixedBalls();
 init();
 animate();
+// test
+// let x = 0.1;
+// function drawImage(ball) {
+// 	c.save();
+// 	c.globalAlpha = 0.1;
+// 	c.drawImage(
+// 		image,
+// 		ball.x - ball.r,
+// 		ball.y - ball.r,
+// 		ball.r * 2,
+// 		ball.r * 2
+// 	);
+
+// 	c.restore();
+// }
