@@ -310,10 +310,6 @@ function adjustPositions(ballA, ballB, depth) {
 	ballA.y -= (1 / ballA.r) * correction[1];
 }
 
-let image = new Image();
-image.onload = drawImage;
-image.src = "./sample.png";
-
 function animate() {
 	c.fillStyle = "#193ad5";
 	c.fillRect(0, 0, sizes.width, sizes.height);
@@ -359,18 +355,3 @@ function animate() {
 drawFixedBalls();
 init();
 animate();
-// test
-// let x = 0.1;
-// function drawImage(ball) {
-// 	c.save();
-// 	c.globalAlpha = 0.1;
-// 	c.drawImage(
-// 		image,
-// 		ball.x - ball.r,
-// 		ball.y - ball.r,
-// 		ball.r * 2,
-// 		ball.r * 2
-// 	);
-
-// 	c.restore();
-// }
