@@ -312,7 +312,7 @@ function adjustPositions(ballA, ballB, depth) {
 
 let image = new Image();
 image.onload = drawImage;
-image.src = "./public/sample.png";
+image.src = "./sample.png";
 
 function animate() {
 	c.fillStyle = "#193ad5";
