@@ -19,6 +19,8 @@
 
 body {
 	font-size: 1rem;
+	width: 100vw;
+	overflow-x: hidden;
 	font-family: "Poppins", sans-serif;
 }
 
@@ -28,6 +30,7 @@ header {
 	padding: 10px 40px;
 	display: flex;
 	justify-content: space-between;
+	overflow: hidden;
 }
 
 header > div {
@@ -303,6 +306,14 @@ h2 {
 	font-size: 0.9rem;
 }
 
+.padd-left {
+	padding-left: 10vw;
+}
+
+.padd-right {
+	padding-right: 10vw;
+}
+
 /* --------- section 12 ------------- */
 .section12 {
 	margin: 40px 15vw;
@@ -320,4 +331,79 @@ h2 {
 
 .section12 li {
 	margin-top: 10px;
+}
+
+/* ------------- mobile view -------------- */
+
+@media screen and (max-width: 800px) {
+	.lists {
+		flex-direction: column;
+	}
+	.lists div {
+		max-width: 100%;
+		margin-bottom: 20px;
+	}
+	.section1 {
+		margin: 40px 40px;
+	}
+	.section3 {
+		margin: 40px 40px;
+	}
+	.section5 {
+		margin: 40px 40px;
+	}
+	.section7 {
+		margin: 40px 40px;
+	}
+	.section9 {
+		margin: 40px 40px;
+	}
+	.section10 {
+		margin: 40px 40px;
+	}
+	.section12 {
+		margin: 40px 40px;
+	}
+	.research-container {
+		flex-direction: column;
+	}
+	.one-research img {
+		width: 100%;
+	}
+	.extra-one-research {
+		width: 100%;
+		padding: 0;
+	}
+
+	.colors-container {
+		padding: 0;
+		flex-direction: column;
+	}
+	.one-color {
+		width: 100px;
+		height: 50px;
+	}
+	.section9-left-section {
+		grid-template-columns: auto auto;
+	}
+	.section9-right-section {
+		margin-top: 30px;
+		height: 160px;
+		padding: 0;
+	}
+	.one-video {
+		flex-direction: column;
+	}
+	.one-video ul {
+		margin: 0;
+	}
+	.flex-rev {
+		flex-direction: column-reverse;
+	}
+	.padd-left {
+		padding-left: 40px;
+	}
+	.padd-right {
+		padding-right: 40px;
+	}
 }
