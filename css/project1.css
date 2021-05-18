@@ -424,4 +424,14 @@ h2 {
 	.padd-right {
 		padding-right: 40px;
 	}
+	.name {
+		display: none;
+	}
+	.header {
+		padding: 0;
+		padding-left: 15px;
+	}
+	.right-section div {
+		margin-right: 15px;
+	}
 }
