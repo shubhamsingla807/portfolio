@@ -12,6 +12,11 @@
 	font-weight: 800;
 }
 
+.green {
+	color: #4dc591;
+	font-weight: 800;
+}
+
 body {
 	font-size: 1rem;
 	font-family: "Poppins", sans-serif;
@@ -265,4 +270,54 @@ h2 {
 }
 .section9-right-section h2 {
 	color: #1937d7;
+}
+
+/* -------------- section 10 ------------ */
+.section10 {
+	margin: 40px 15vw;
+}
+
+.section10 p {
+	font-size: 0.9rem;
+}
+
+.section10 h4 {
+	margin-bottom: 20px;
+	margin-top: 100px;
+}
+
+.one-video {
+	display: flex;
+	margin-top: 60px;
+}
+
+.video-info {
+	flex-grow: 3;
+	display: flex;
+	align-items: center;
+	/* flex-direction: ; */
+}
+
+.video-info li {
+	margin-top: 30px;
+	font-size: 0.9rem;
+}
+
+/* --------- section 12 ------------- */
+.section12 {
+	margin: 40px 15vw;
+}
+
+.section12 p {
+	font-size: 0.9rem;
+}
+
+.section12 ul {
+	font-size: 0.9rem;
+	margin-left: 20px;
+	margin-top: 30px;
+}
+
+.section12 li {
+	margin-top: 10px;
 }

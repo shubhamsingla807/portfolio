@@ -353,5 +353,5 @@ function animate() {
 }
 
 drawFixedBalls();
-init();
+// init();
 animate();
