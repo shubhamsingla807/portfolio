@@ -1,0 +1,234 @@
+@import url("https://fonts.googleapis.com/css2?family=Montez&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	scroll-behavior: smooth;
+}
+
+.blue {
+	color: #1937d7;
+	font-weight: 800;
+}
+
+.green {
+	color: #4dc591;
+	font-weight: 800;
+}
+
+body {
+	font-size: 1rem;
+	width: 100vw;
+	overflow-x: hidden;
+	font-family: "Poppins", sans-serif;
+}
+
+header {
+	position: sticky;
+	top: 0;
+	background-color: rgba(255, 255, 255, 0.5);
+	backdrop-filter: blur(10px);
+}
+
+.header {
+	height: 80px;
+	width: 100vw;
+	padding: 10px 40px;
+	display: flex;
+	justify-content: space-between;
+	overflow: hidden;
+}
+
+.header > div {
+	display: flex;
+	align-items: center;
+	font-family: "Montez", cursive;
+}
+
+.initials {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	color: white;
+	background-color: #1937d7;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.2rem;
+	font-family: sans-serif;
+}
+
+.name {
+	color: #1937d7;
+	margin-left: 30px;
+	font-size: 1.7rem;
+}
+.right-section div {
+	font-family: "Poppins", sans-serif;
+	margin-right: 30px;
+}
+
+/* ---------- section 1 ------------ */
+.section1 {
+	padding: 40px 15vw;
+	display: flex;
+}
+
+.image-container {
+	width: 100%;
+}
+
+.image-container p {
+	font-size: 0.7rem;
+}
+
+.image-container img {
+	width: 100%;
+}
+
+.info-div {
+	flex-grow: 3;
+	margin-top: 40px;
+}
+
+.mar-left {
+	margin-left: 8vw;
+}
+
+.mar-right {
+	margin-right: 8vw;
+}
+
+.flex-rev {
+	flex-direction: row-reverse;
+}
+
+.yellow-block {
+	background-color: yellow;
+}
+
+.section2 {
+	padding: 40px 8vw;
+}
+
+.section2 h2 {
+	margin-left: 5vw;
+}
+
+/* ----------- linkedin  */
+.linkdin-container {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 40px;
+}
+
+.one-review {
+	border: 1.19px solid #84878a;
+	width: 40vw;
+	padding: 20px;
+	border-radius: 10px;
+}
+
+.top {
+	display: flex;
+	font-size: 0.9rem;
+	word-spacing: 4px;
+	padding: 10px 30px;
+	min-height: 170px;
+	padding-bottom: 0;
+}
+
+.top-left img {
+	width: 40px;
+}
+
+.top-right {
+	margin-left: 30px;
+	flex-grow: 4;
+}
+
+.bottom {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 20px;
+}
+
+.profile-container img {
+	width: 70px;
+	margin-right: 10px;
+}
+
+.name-cred {
+	width: 10%;
+	flex-grow: 3;
+}
+
+.cred {
+	font-size: 0.8rem;
+}
+
+.bottom-gret {
+	margin-top: 80px;
+	margin-bottom: 40px;
+	font-size: 1.1rem;
+}
+
+@media screen and (max-width: 800px) {
+	.section1 {
+		flex-direction: column;
+		padding: 40px 5vw;
+	}
+
+	.mar-left {
+		margin-left: 0;
+	}
+
+	.mar-right {
+		margin-right: 0;
+	}
+
+	.section2 {
+		padding: 40px 5vw;
+	}
+	.linkdin-container {
+		flex-direction: column;
+	}
+
+	.one-review {
+		width: 90vw;
+		margin-bottom: 40px;
+	}
+
+	.top {
+		padding: 0;
+		min-height: 0;
+	}
+
+	.bottom {
+		padding: 0;
+		margin-top: 40px;
+	}
+
+	.date-linke {
+		display: none;
+	}
+
+	.bottom-gret {
+		margin: 20px;
+	}
+
+	/* header */
+	.name {
+		display: none;
+	}
+	.header {
+		padding: 0;
+		padding-left: 15px;
+	}
+	.right-section div {
+		margin-right: 15px;
+	}
+}

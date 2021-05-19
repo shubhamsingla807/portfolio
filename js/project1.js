@@ -52,5 +52,4 @@ function updateNavigator() {
 			}
 		}
 	}
-	// links[0].style.color = "blue";
 }
