@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Playground</title>
+		<link rel="stylesheet" href="./css/playground.css" />
+		<script
+			type="module"
+			src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"
+		></script>
+		<script src="./js/playground.js"></script>
+	</head>
+	<body>
+		<header>
+			<div class="header">
+				<div class="left-section">
+					<div class="initials">sS.</div>
+					<div><span class="name">Shubham Singla</span></div>
+				</div>
+				<div class="right-section">
+					<div>Work</div>
+					<div>About Me</div>
+					<div>Playground</div>
+				</div>
+			</div>
+			<div class="progress-container">
+				<div class="progress-bar" id="myBar"></div>
+			</div>
+		</header>
+
+		<div class="sketchfab-embed-wrapper">
+			<iframe
+				title="Heart-shaped glasses"
+				frameborder="0"
+				allowfullscreen
+				mozallowfullscreen="true"
+				webkitallowfullscreen="true"
+				allow="fullscreen; autoplay; vr"
+				xr-spatial-tracking
+				execution-while-out-of-viewport
+				execution-while-not-rendered
+				web-share
+				width="640"
+				height="680"
+				src="https://sketchfab.com/models/97cbff16eec648fdb211ea58159bd9ba/embed?autostart=1"
+			>
+			</iframe>
+		</div>
+		<div>
+			<model-viewer
+				style="width: 500px; height: 500px"
+				src="./source/coeur.glb"
+				alt="A 3D model of an astronaut"
+				auto-rotate
+				camera-controls
+			></model-viewer>
+		</div>
+
+		<main>
+			<section class="margin15-40 section1">
+				<p>
+					Sometimes I write, sometimes I read , sometimes I make
+					micro-interactions, sometimes I make graphics, sometimes I
+					speak at events too!
+				</p>
+				<h3 class="blue">My Micro-Interactions -</h3>
+
+				<div class="video-container">
+					<div class="video">
+						<video width="1000" height="540" controls>
+							<source
+								src="./videos/playground_video6.mp4"
+								type="video/mp4"
+							/>
+						</video>
+					</div>
+
+					<div class="video">
+						<video width="375" height="400">
+							<source
+								src="./videos/playground_video1.mp4"
+								type="video/mp4"
+							/>
+						</video>
+					</div>
+
+					<div class="video">
+						<video width="345" height="580">
+							<source
+								src="./videos/playground_video2.mp4"
+								type="video/mp4"
+							/>
+						</video>
+					</div>
+					<div class="video">
+						<video width="375" height="400" controls>
+							<source
+								src="./videos/playground_video3.mp4"
+								type="video/mp4"
+							/>
+						</video>
+					</div>
+
+					<div class="video">
+						<video width="375" height="400" controls>
+							<source
+								src="./videos/playground_video4.mp4"
+								type="video/mp4"
+							/>
+						</video>
+					</div>
+
+					<div class="video">
+						<video width="370" height="300" controls>
+							<source
+								src="./videos/playground_video5.mp4"
+								type="video/mp4"
+							/>
+						</video>
+					</div>
+				</div>
+			</section>
+		</main>
+	</body>
+</html>
