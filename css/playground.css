@@ -198,6 +198,8 @@ video {
 	}
 	.header {
 		padding: 0;
+	}
+	.left-section {
 		margin-left: 15px;
 	}
 	.right-section div {
