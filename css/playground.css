@@ -77,25 +77,165 @@ header {
 
 /* main */
 .section1 {
+	margin: 40px 5vw;
+}
+.text-center {
 	text-align: center;
 }
 
 .section1 p {
 	line-height: 2rem;
-	word-spacing: 2px;
+	word-spacing: 1px;
 	letter-spacing: 0.1rem;
 	margin-bottom: 30px;
+	margin: 0 10vw;
 }
 
 .video-container {
-	display: flex;
-	flex-wrap: wrap;
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-row-gap: 50px;
+	margin-top: 60px;
 }
 
-.video {
-	margin: 40px;
+.item1 {
+	grid-column: 1 / 3;
 }
 
 video {
 	box-shadow: 0px 0px 3px 3px #ccc;
+}
+
+/*  ---------- section2 */
+.section2 {
+	margin-top: 80px;
+}
+.article-container {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+.one-article {
+	width: 30vw;
+	max-width: 400px;
+	min-width: 310px;
+	box-shadow: 0px 4px 4px 0px #c0bdbd40;
+	margin-top: 40px;
+}
+.article-content {
+	text-align: left;
+	padding: 10px 20px;
+}
+.article-content > h4 {
+	margin-top: 20px;
+}
+.article-content p {
+	color: #718096;
+}
+.img-container {
+	width: 100%;
+	overflow: hidden;
+}
+.img-container img {
+	width: 100%;
+}
+.date {
+	display: flex;
+	justify-content: space-between;
+	margin: 20px 0;
+}
+
+.date a[target="_blank"]::after {
+	content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
+	margin: 0 3px 0 5px;
+}
+
+/* ---------- section 3 ------------ */
+.section3 {
+	margin-top: 80px;
+}
+.event-container {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.event-img-container {
+	width: 30vw;
+	max-width: 400px;
+	min-width: 300px;
+	margin-top: 40px;
+}
+
+.event-img-container img {
+	width: 100%;
+}
+/* ------- section4 ------- */
+.section4 {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 120px;
+}
+
+.section4-img-container {
+	/* width: 30vw; */
+}
+
+.section4-img-container img {
+	width: 400px;
+}
+.book-info {
+	display: flex;
+	align-items: center;
+	padding: 20px 40px;
+	text-align: left;
+}
+
+@media screen and (max-width: 800px) {
+	/* header */
+	.name {
+		display: none;
+	}
+	.header {
+		padding: 0;
+		padding-left: 15px;
+	}
+	.right-section div {
+		margin-right: 15px;
+	}
+
+	.section1 p {
+		margin: 0;
+	}
+
+	.video-container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.video-container video {
+		width: 100%;
+	}
+
+	.margin15-40 {
+		margin: 40px 40px;
+	}
+	.article-container {
+		flex-direction: column;
+		align-items: center;
+	}
+	.one-article {
+		width: 50vw;
+		max-width: 400px;
+		min-width: 310px;
+	}
+	.section4 {
+		flex-direction: column;
+	}
+	.section4-img-container img {
+		width: 300px;
+	}
+	.book-info {
+		padding: 20px 0;
+	}
 }

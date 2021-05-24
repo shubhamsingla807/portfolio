@@ -1,5 +1,5 @@
 // window.onload = function () {
-const canvas = document.querySelector("canvas");
+const canvas = document.querySelector("#canvas1");
 const c = canvas.getContext("2d");
 
 // cursor
@@ -355,3 +355,19 @@ function animate() {
 drawFixedBalls();
 // init();
 animate();
+
+//   section2
+
+window.addEventListener("load", function () {
+	let part1 = document.getElementById("part1");
+	let canvas2 = document.getElementById("test1");
+	part1.addEventListener("mousemove", (e) => {
+		canvas2.style.display = "block";
+		canvas2.style.left = `${e.x - 100}px`;
+		canvas2.style.top = `${e.y - 130}px`;
+	});
+
+	part1.addEventListener("mouseout", () => {
+		canvas2.style.display = "none";
+	});
+});
