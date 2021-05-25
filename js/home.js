@@ -359,15 +359,24 @@ animate();
 //   section2
 
 window.addEventListener("load", function () {
-	let part1 = document.getElementById("part1");
-	let canvas2 = document.getElementById("test1");
-	part1.addEventListener("mousemove", (e) => {
-		canvas2.style.display = "block";
-		canvas2.style.left = `${e.x - 100}px`;
-		canvas2.style.top = `${e.y - 130}px`;
-	});
+	let overlay = document.getElementsByClassName("overlay");
+	let overlayImage = document.getElementById("overlay-container");
+	for (let i = 0; i < overlay.length; i++) {
+		overlay[i].addEventListener("click", (e) => {
+			window.open(overlay[i].dataset.url);
+		});
 
-	part1.addEventListener("mouseout", () => {
-		canvas2.style.display = "none";
-	});
+		overlay[i].addEventListener("mousemove", (e) => {
+			overlayImage.style.display = "block";
+			gsap.to(overlayImage, {
+				top: e.y - 60,
+				left: e.x - 60,
+				// opacity: 1,
+			});
+		});
+
+		overlay[i].addEventListener("mouseout", (e) => {
+			overlayImage.style.display = "none";
+		});
+	}
 });
