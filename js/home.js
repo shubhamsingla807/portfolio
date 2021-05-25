@@ -38,25 +38,6 @@ window.addEventListener("resize", () => {
 	canvas.height = sizes.height;
 });
 
-window.addEventListener("dblclick", (e) => {
-	const fullscreenElement =
-		document.fullscreenElement || document.webkitFullscreenElement;
-
-	if (!fullscreenElement) {
-		if (canvas.requestFullscreen) {
-			canvas.requestFullscreen();
-		} else if (canvas.webkitFequestFullscreen) {
-			canvas.webkitFequestFullscreen;
-		}
-	} else {
-		if (document.exitFullscreen) {
-			document.exitFullscreen();
-		} else if (document.webkitExitFullscreen) {
-			document.webkitExitFullscreen();
-		}
-	}
-});
-
 class FixedBalls {
 	constructor(x, y, r) {
 		this.x = x;
@@ -71,7 +52,10 @@ class FixedBalls {
 		return mAngle > 0 ? mAngle : Math.PI * 2 + mAngle;
 	}
 
-	circlePath(cx, cy, r, mx, my) {
+	circlePath(mx, my) {
+		let cx = this.x;
+		let cy = this.y;
+		let r = this.r;
 		const dist = Math.hypot(mx - cx, my - cy);
 		let path = "";
 		if (dist > r && dist < 3 * r) {
@@ -169,51 +153,48 @@ function drawFixedBalls() {
 		sizes.height * 0.1,
 		sizes.width * 0.09
 	);
-	const path1 = circle1.circlePath(
-		sizes.width * 0.78,
-		sizes.height * 0.1,
-		sizes.width * 0.09,
-		mouse.x,
-		mouse.y
-	);
+	if (sizes.width < 500) {
+		circle1.x = sizes.width * 0.7;
+		circle1.y = sizes.height * 0.75;
+		circle1.r = sizes.width * 0.16;
+	}
+	const path1 = circle1.circlePath(mouse.x, mouse.y);
 
 	let circle2 = new FixedBalls(
 		sizes.width * 0.9,
 		sizes.height * 0.45,
 		sizes.width * 0.06
 	);
-	const path2 = circle2.circlePath(
-		sizes.width * 0.9,
-		sizes.height * 0.45,
-		sizes.width * 0.06,
-		mouse.x,
-		mouse.y
-	);
+	if (sizes.width < 900) {
+		circle2.y = sizes.height * 0.35;
+	}
+	if (sizes.width < 500) {
+		circle2.x = sizes.width * 1;
+		circle2.y = sizes.height * 0.18;
+		circle2.r = sizes.width * 0.2;
+	}
+	const path2 = circle2.circlePath(mouse.x, mouse.y);
 
 	let circle3 = new FixedBalls(
 		sizes.width * 0.2,
 		sizes.height * 0.3,
 		sizes.width * 0.09
 	);
-	const path3 = circle3.circlePath(
-		sizes.width * 0.2,
-		sizes.height * 0.3,
-		sizes.width * 0.09,
-		mouse.x,
-		mouse.y
-	);
+	if (sizes.width < 900) {
+		circle3.y = sizes.height * 0.2;
+	}
+	const path3 = circle3.circlePath(mouse.x, mouse.y);
 	let circle4 = new FixedBalls(
 		sizes.width * 0.04,
 		sizes.height * 0.8,
 		sizes.width * 0.05
 	);
-	const path4 = circle4.circlePath(
-		sizes.width * 0.04,
-		sizes.height * 0.8,
-		sizes.width * 0.05,
-		mouse.x,
-		mouse.y
-	);
+	if (sizes.width < 500) {
+		circle4.x = sizes.width * 0.04;
+		circle4.y = sizes.height * 0.8;
+		circle4.r = sizes.width * 0.12;
+	}
+	const path4 = circle4.circlePath(mouse.x, mouse.y);
 	const p1 = new Path2D(path1);
 	c.fill(p1);
 	const p2 = new Path2D(path2);
@@ -327,15 +308,6 @@ function animate() {
 			}
 		}
 		fixedBalls.forEach((fixedball) => {
-			// if (
-			// 	mouse.x > fixedball.x - fixedball.r &&
-			// 	mouse.x < fixedball.x + fixedball.r &&
-			// 	mouse.y > fixedball.y - fixedball.r &&
-			// 	mouse.y < fixedball.y + fixedball.r
-			// ) {
-			// 	drawImage(fixedball);
-			// }
-
 			let collision = checkCollision(ball, fixedball);
 			if (collision[0]) {
 				adjustPositions(ball, fixedball, collision[1]);
@@ -343,17 +315,19 @@ function animate() {
 			}
 		});
 		// for mouse
-		let collision = checkCollision(ball, mouse);
-		if (collision[0]) {
-			adjustPositions(ball, mouse, collision[1]);
-			resolveCollision(ball, mouse);
+		if (sizes.width > 800) {
+			let collision = checkCollision(ball, mouse);
+			if (collision[0]) {
+				adjustPositions(ball, mouse, collision[1]);
+				resolveCollision(ball, mouse);
+			}
 		}
 	}
 	requestAnimationFrame(animate);
 }
 
 drawFixedBalls();
-// init();
+init();
 animate();
 
 //   section2
@@ -363,7 +337,7 @@ window.addEventListener("load", function () {
 	let overlayImage = document.getElementById("overlay-container");
 	for (let i = 0; i < overlay.length; i++) {
 		overlay[i].addEventListener("click", (e) => {
-			window.open(overlay[i].dataset.url);
+			window.open(overlay[i].dataset.url, "_top");
 		});
 
 		overlay[i].addEventListener("mousemove", (e) => {

@@ -13,20 +13,23 @@ body {
 	padding: 0;
 	font-family: "Montez", cursive;
 	font-size: 1rem;
+	width: 100vw;
+	overflow-x: hidden;
 }
 
 .section1 {
 	width: 100vw;
 	height: 100vh;
-	/* background-color: #1937d7; */
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
 	position: absolute;
 	top: 0;
-	/* cursor: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/9632/heart.png"),
-		auto; */
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 .section1 div {
@@ -94,10 +97,10 @@ body {
 	width: 140px;
 }
 
-.of p {
+.of h2 {
 	top: 40px;
 	left: 60px;
-	font-size: 60px;
+	/* font-size: 60px; */
 }
 .brackets {
 	display: flex;
@@ -130,18 +133,6 @@ body {
 	margin: 0;
 	font-size: 24px;
 }
-@media screen and (max-width: 800px) {
-	.name-container {
-		display: none;
-	}
-}
-
-@media screen and (max-width: 480px) {
-	.main-content {
-		font-size: 1.3rem;
-		line-height: normal;
-	}
-}
 
 /* -section 2 */
 .section2 {
@@ -154,6 +145,10 @@ body {
 	text-shadow: #ccc;
 	/* border: 1px solid; */
 	position: relative;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 .section2 p {
@@ -162,6 +157,12 @@ body {
 
 .section2 h1 {
 	margin-bottom: 40px;
+}
+
+.section2 a {
+	text-decoration: none;
+	color: black;
+	cursor: pointer;
 }
 
 .section2 hr {
@@ -207,4 +208,52 @@ body {
 .section2 h1 {
 	font-size: 3rem;
 	font-size: 3.5rem;
+}
+
+@media screen and (max-width: 800px) {
+	.arrow img {
+		display: none;
+	}
+	.arrow2 {
+		margin: 0;
+		margin-top: 100px;
+	}
+	.arrow2 img {
+		display: none;
+	}
+
+	.of h2 {
+		top: 60px;
+		left: 200px;
+	}
+
+	.brackets {
+		display: none;
+	}
+	.of img {
+		display: none;
+	}
+	.section2 {
+		padding: 40px 0;
+	}
+	.section2 p {
+		color: #5a5a5a;
+	}
+	.overlay {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.main-content {
+		font-size: 1.5rem;
+		line-height: normal;
+	}
+	.arrow2 {
+		margin: 0;
+		margin-top: 60px;
+	}
+	.of h2 {
+		left: 120px;
+	}
 }
