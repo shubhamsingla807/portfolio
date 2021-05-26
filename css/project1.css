@@ -8,6 +8,19 @@
 	scroll-behavior: smooth;
 }
 
+.dot {
+	color: #959595;
+	font-size: xx-large;
+	margin: 0 10px;
+	display: block;
+	margin-top: -15px;
+}
+
+.section1-h2 {
+	display: flex;
+	align-items: center;
+}
+
 .green {
 	color: #4dc591;
 	font-weight: 800;
