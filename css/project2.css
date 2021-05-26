@@ -120,6 +120,11 @@ header {
 	margin-right: 30px;
 }
 
+.right-section a {
+	text-decoration: none;
+	color: black;
+}
+
 /* main -image */
 .main-image {
 	width: 100vw;
@@ -493,6 +498,10 @@ footer ul li:nth-child(3) a:before {
 	}
 	.margin40-15 {
 		margin: 40px 40px;
+	}
+
+	.section1-h2 h2 {
+		font-size: 1rem;
 	}
 
 	.stats {
