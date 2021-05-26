@@ -6,6 +6,12 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Playground</title>
 		<link rel="stylesheet" href="./css/playground.css" />
+		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+			integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+			crossorigin="anonymous"
+		/>
 	</head>
 	<body>
 		<header>
@@ -21,6 +27,25 @@
 				</div>
 			</div>
 		</header>
+
+		<div class="social">
+			<div class="icons">
+				<ul>
+					<li>
+						<a href="#"><i class="fab fa-twitter icon"></i></a>
+					</li>
+					<li>
+						<a href="#"><i class="fab fa-linkedin-in icon"></i></a>
+					</li>
+					<li>
+						<a href="#"><i class="fab fa-medium icon"></i></a>
+					</li>
+					<li>
+						<a href="#"><i class="fas fa-envelope icon"></i></a>
+					</li>
+				</ul>
+			</div>
+		</div>
 
 		<main>
 			<section class="margin15-40 text-center section1">
@@ -155,7 +180,11 @@
 							<div class="date">
 								<p>May 20th 2020</p>
 								<h4>
-									<a href="" target="_blank">Read more</a>
+									<a
+										href="https://bootcamp.uxdesign.cc/my-remote-ux-design-internship-experience-in-tweets-format-a3d8689858f6"
+										target="_blank"
+										>Read more</a
+									>
 								</h4>
 							</div>
 						</div>
@@ -182,7 +211,11 @@
 							<div class="date">
 								<p>May 20th 2020</p>
 								<h4>
-									<a href="" target="_blank">Read more</a>
+									<a
+										href="https://bootcamp.uxdesign.cc/how-i-challenged-myself-to-learn-the-skill-of-ux-writing-213f09c081bf"
+										target="_blank"
+										>Read more</a
+									>
 								</h4>
 							</div>
 						</div>
@@ -215,6 +248,14 @@
 				</div>
 			</section>
 		</main>
+		<script>
+			let articles = document.getElementsByClassName("one-article");
+			for (let i = 0; i < articles.length; i++) {
+				articles[i].addEventListener("click", () => {
+					articles[i].getElementsByTagName("a")[0].click();
+				});
+			}
+		</script>
 		<script src="./js/playground.js"></script>
 	</body>
 </html>
