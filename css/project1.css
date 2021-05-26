@@ -21,6 +21,10 @@
 	align-items: center;
 }
 
+.section1-h2-alternate {
+	display: none;
+}
+
 .green {
 	color: #4dc591;
 	font-weight: 800;
@@ -93,6 +97,11 @@ header {
 .right-section div {
 	font-family: "Poppins", sans-serif;
 	margin-right: 30px;
+}
+
+.right-section a {
+	text-decoration: none;
+	color: black;
 }
 
 /* main -image */
@@ -563,6 +572,10 @@ footer ul li:nth-child(3) a:before {
 	.section1 {
 		margin: 40px 40px;
 	}
+	.section1-h2 h2 {
+		font-size: 1rem;
+	}
+
 	.section3 {
 		margin: 40px 40px;
 	}

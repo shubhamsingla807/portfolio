@@ -11,21 +11,23 @@ const mouse = {
 	r: 40,
 };
 
+const sizes = {
+	width: window.innerWidth,
+	height: window.innerHeight,
+};
+
 window.addEventListener("mousemove", (e) => {
 	mouse.x = e.clientX;
 	mouse.y = e.clientY;
 
 	let custom = document.getElementById("custom-cursor");
-	gsap.to(custom, {
-		top: e.y - 40,
-		left: e.x - 40,
-	});
+	if (sizes.width > 800) {
+		gsap.to(custom, {
+			top: e.y - 40,
+			left: e.x - 40,
+		});
+	}
 });
-
-const sizes = {
-	width: window.innerWidth,
-	height: window.innerHeight,
-};
 
 canvas.width = sizes.width;
 canvas.height = sizes.height;
