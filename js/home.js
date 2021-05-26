@@ -8,12 +8,18 @@ const mouse = {
 	y: 0,
 	dx: 0,
 	dy: 0,
-	r: 50,
+	r: 40,
 };
 
 window.addEventListener("mousemove", (e) => {
 	mouse.x = e.clientX;
 	mouse.y = e.clientY;
+
+	let custom = document.getElementById("custom-cursor");
+	gsap.to(custom, {
+		top: e.y - 40,
+		left: e.x - 40,
+	});
 });
 
 const sizes = {
@@ -320,6 +326,7 @@ function animate() {
 			if (collision[0]) {
 				adjustPositions(ball, mouse, collision[1]);
 				resolveCollision(ball, mouse);
+				//play a middle 'C' for the duration of an 8th note
 			}
 		}
 	}
@@ -353,4 +360,41 @@ window.addEventListener("load", function () {
 			overlayImage.style.display = "none";
 		});
 	}
+
+	// scroll hijacking
+	// let a = true;
+
+	// let onscroll = function () {
+	// 	console.log(a);
+	// 	console.log(window.pageYOffset);
+	// 	if (window.pageYOffset > 50) {
+	// 		let elmnt = document.getElementById("section1id");
+	// 		elmnt.classList.add("zero-width");
+	// 		canvas.classList.add("zero-width");
+	// 		window.removeEventListener("scroll", onscroll, true);
+	// 	}
+	// };
+
+	// if (a === true) {
+	// 	console.log("only once");
+	// 	window.addEventListener("scroll", onscroll, true);
+	// 	a = false;
+	// }
 });
+
+function isElementInViewport(el) {
+	var rect = el.getBoundingClientRect();
+
+	return (
+		rect.bottom > 0 &&
+		rect.right > 0 &&
+		rect.left <
+			(window.innerWidth ||
+				document.documentElement
+					.clientWidth) /* or $(window).width() */ &&
+		rect.top <
+			(window.innerHeight ||
+				document.documentElement
+					.clientHeight) /* or $(window).height() */
+	);
+}
