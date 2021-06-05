@@ -157,8 +157,8 @@ function randomColor(colors) {
 function drawFixedBalls() {
 	c.fillStyle = "#fff";
 	let circle1 = new FixedBalls(
-		sizes.width * 0.78,
-		sizes.height * 0.1,
+		sizes.width * 0.85,
+		sizes.height * 0.3,
 		sizes.width * 0.09
 	);
 	if (sizes.width < 500) {
@@ -169,8 +169,8 @@ function drawFixedBalls() {
 	const path1 = circle1.circlePath(mouse.x, mouse.y);
 
 	let circle2 = new FixedBalls(
-		sizes.width * 0.9,
-		sizes.height * 0.45,
+		sizes.width * 0.75,
+		sizes.height * 0.7,
 		sizes.width * 0.06
 	);
 	if (sizes.width < 900) {
@@ -184,16 +184,16 @@ function drawFixedBalls() {
 	const path2 = circle2.circlePath(mouse.x, mouse.y);
 
 	let circle3 = new FixedBalls(
-		sizes.width * 0.2,
-		sizes.height * 0.3,
-		sizes.width * 0.09
+		sizes.width * 0.57,
+		sizes.height * 0.85,
+		sizes.width * 0.04
 	);
 	if (sizes.width < 900) {
 		circle3.y = sizes.height * 0.2;
 	}
 	const path3 = circle3.circlePath(mouse.x, mouse.y);
 	let circle4 = new FixedBalls(
-		sizes.width * 0.04,
+		sizes.width * 0.02,
 		sizes.height * 0.8,
 		sizes.width * 0.05
 	);
@@ -228,27 +228,27 @@ function drawFixedBalls() {
 
 function generateMore() {
 	setInterval(() => {
-		if (!document.hidden && balls.length < 10) {
-			let numberOfBalls = randomIntFromRange(3, 5);
+		if (!document.hidden && balls.length < 7) {
+			let numberOfBalls = randomIntFromRange(2, 4);
 			for (let i = 0; i < numberOfBalls; i++) {
 				let radius = randomIntFromRange(10, 30);
 				let x = randomIntFromRange(radius, sizes.width);
 				let y = -radius;
-				let dx = randomIntFromRange(-0.5, 0.5);
+				let dx = randomIntFromRange(-1, 1);
 				let dy = randomIntFromRange(-0.5, 0.5);
 				balls.push(new Ball(x, y, dx, dy, radius));
 			}
 		}
-	}, 3000);
+	}, 5000);
 }
 
 function init() {
-	let numberOfBalls = randomIntFromRange(3, 6);
+	let numberOfBalls = randomIntFromRange(3, 4);
 	for (let i = 0; i < numberOfBalls; i++) {
 		let radius = randomIntFromRange(10, 30);
 		let x = randomIntFromRange(radius, sizes.width);
 		let y = -radius;
-		let dx = randomIntFromRange(-0.5, 0.5);
+		let dx = randomIntFromRange(-1, 1);
 		let dy = randomIntFromRange(-0.5, 0.5);
 		balls.push(new Ball(x, y, dx, dy, radius));
 	}
@@ -299,8 +299,12 @@ function adjustPositions(ballA, ballB, depth) {
 	ballA.y -= (1 / ballA.r) * correction[1];
 }
 
+let grd = c.createLinearGradient(0, 0, sizes.width, 0);
+grd.addColorStop(0, "#193ad5");
+grd.addColorStop(1, "#120845");
+
 function animate() {
-	c.fillStyle = "#193ad5";
+	c.fillStyle = grd;
 	c.fillRect(0, 0, sizes.width, sizes.height);
 	drawFixedBalls();
 	for (let ball of balls) {

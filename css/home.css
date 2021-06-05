@@ -29,11 +29,9 @@ body {
 	width: 100vw;
 	height: 100vh;
 	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
 	position: absolute;
-	top: 0;
+	top: 20vh;
+	left: 10vw;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
@@ -47,17 +45,20 @@ body {
 
 .main-content {
 	color: white;
-	font-size: 2.5rem;
+	font-size: 2rem;
 	font-style: normal;
-	text-align: center;
-	line-height: 5rem;
-	letter-spacing: 0.4rem;
+	line-height: 5.4rem;
 	word-spacing: normal;
+	font-family: "Aldrich", sans-serif;
 }
 
-#canvas1 {
-	/* width: 100vw; */
-	/* height: 100vh; */
+.main-content h2 {
+	font-size: 2em;
+}
+
+.margin40 {
+	height: 5rem;
+	margin-left: 40px;
 }
 
 .arrow {
@@ -109,15 +110,11 @@ body {
 .of h2 {
 	top: 40px;
 	left: 60px;
-	/* font-size: 60px; */
 }
 .brackets {
 	display: flex;
 	align-items: center;
-	position: absolute;
-	left: 180px;
-	top: 60px;
-	width: max-content;
+	margin-left: 40px;
 }
 
 .brac {
