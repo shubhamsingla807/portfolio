@@ -377,6 +377,7 @@ window.addEventListener("load", function () {
 		grainHeight: 1,
 	};
 	grained("#section1id", options);
+	grained("#section2-container", options);
 });
 
 function isElementInViewport(el) {
