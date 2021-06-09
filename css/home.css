@@ -30,13 +30,25 @@ body {
 	height: 100vh;
 	display: flex;
 	position: absolute;
-	top: 20vh;
-	left: 10vw;
+	padding-top: 20vh;
+	padding-left: 10vw;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
 	cursor: none;
+}
+
+.section1::before {
+	z-index: 2;
+}
+
+canvas {
+	width: 100vw;
+	height: 100vh;
+	position: absolute;
+	top: 0;
+	left: 0;
 }
 
 .section1 div {
@@ -201,6 +213,15 @@ header {
 .right-section div {
 	font-family: "Poppins", sans-serif;
 	margin-right: 30px;
+}
+
+.rotate-right {
+	display: inline-block;
+}
+
+.rotate-right-container a {
+	text-decoration: none;
+	color: black;
 }
 
 /* -section 2 */
