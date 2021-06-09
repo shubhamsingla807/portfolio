@@ -9,7 +9,6 @@
 			href="https://fonts.googleapis.com/css2?family=Montez&display=swap"
 			rel="stylesheet"
 		/>
-		<link rel="preconnect" href="https://fonts.gstatic.com" />
 		<link
 			href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap"
 			rel="stylesheet"
@@ -25,6 +24,8 @@
 	</head>
 	<body class="body">
 		<div class="section1" id="section1id">
+			<canvas id="canvas1"></canvas>
+
 			<div class="main-content">
 				<div>
 					<h2>PRODUCT DESIGNER</h2>
@@ -56,7 +57,6 @@
 		</div>
 
 		<div id="custom-cursor"></div>
-		<canvas id="canvas1"></canvas>
 
 		<header>
 			<div class="header">
@@ -65,9 +65,15 @@
 					<div><span class="name">Shubham Singla</span></div>
 				</div>
 				<div class="right-section">
-					<div>Work</div>
-					<div>About Me</div>
-					<div>Playground</div>
+					<div class="rotate-right-container">
+						<a href="/" style="color: #1937d7">Work </a>
+					</div>
+					<div class="rotate-right-container">
+						<a href="./about.html"> About Me </a>
+					</div>
+					<div class="rotate-right-container">
+						<a href="./playground.html"> Playground </a>
+					</div>
 				</div>
 			</div>
 			<div class="progress-container">
@@ -113,5 +119,6 @@
 		<script src="https://www.curtainsjs.com/build/curtains.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
 		<script src="./js/home.js"></script>
+		<script src="./js/grained.js"></script>
 	</body>
 </html>
