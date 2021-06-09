@@ -367,25 +367,16 @@ window.addEventListener("load", function () {
 		});
 	}
 
-	// scroll hijacking
-	// let a = true;
-
-	// let onscroll = function () {
-	// 	console.log(a);
-	// 	console.log(window.pageYOffset);
-	// 	if (window.pageYOffset > 50) {
-	// 		let elmnt = document.getElementById("section1id");
-	// 		elmnt.classList.add("zero-width");
-	// 		canvas.classList.add("zero-width");
-	// 		window.removeEventListener("scroll", onscroll, true);
-	// 	}
-	// };
-
-	// if (a === true) {
-	// 	console.log("only once");
-	// 	window.addEventListener("scroll", onscroll, true);
-	// 	a = false;
-	// }
+	var options = {
+		animate: true,
+		patternWidth: 100,
+		patternHeight: 193.71,
+		grainOpacity: 0.1,
+		grainDensity: 1,
+		grainWidth: 1,
+		grainHeight: 1,
+	};
+	grained("#section1id", options);
 });
 
 function isElementInViewport(el) {
