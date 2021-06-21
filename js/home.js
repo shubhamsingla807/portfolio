@@ -303,8 +303,6 @@ let grd = c.createLinearGradient(0, 0, sizes.width, 0);
 grd.addColorStop(0, "#193ad5");
 grd.addColorStop(1, "#120845");
 
-const synth = new Tone.Synth().toDestination();
-
 function animate() {
 	c.fillStyle = grd;
 	c.fillRect(0, 0, sizes.width, sizes.height);
@@ -324,7 +322,6 @@ function animate() {
 		fixedBalls.forEach((fixedball) => {
 			let collision = checkCollision(ball, fixedball);
 			if (collision[0]) {
-				synth.triggerAttackRelease(`C4`, `8N`);
 				adjustPositions(ball, fixedball, collision[1]);
 				resolveCollision(ball, fixedball);
 			}
@@ -380,7 +377,6 @@ window.addEventListener("load", function () {
 		grainHeight: 1,
 	};
 	grained("#section1id", options);
-	grained("#section2-container", options);
 });
 
 function isElementInViewport(el) {
