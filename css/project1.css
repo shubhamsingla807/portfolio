@@ -99,9 +99,44 @@ header {
 	margin-right: 30px;
 }
 
-.right-section a {
+@keyframes shadow {
+	from {
+		box-shadow: none;
+		color: black;
+	}
+	to {
+		box-shadow: inset 0 -18px 30px -30px #3b51ce;
+		color: #3b51ce;
+	}
+}
+
+.rotate-right-container a {
 	text-decoration: none;
 	color: black;
+	position: relative;
+	transition: 0.4s;
+	display: block;
+	padding: 0 10px;
+	padding-bottom: 10px;
+}
+
+.rotate-right-container a::after {
+	width: 0;
+	left: 0;
+	height: 1px;
+	background-color: #3b51ce;
+	position: absolute;
+	content: "";
+	top: 100%;
+	transition: 0.3s;
+}
+
+.rotate-right-container a:hover::after {
+	width: 100%;
+}
+
+.rotate-right-container a:hover {
+	animation: shadow 0.5s linear both;
 }
 
 /* main -image */

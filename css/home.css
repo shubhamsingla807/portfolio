@@ -15,6 +15,8 @@ body {
 	font-size: 1rem;
 	width: 100vw;
 	overflow-x: hidden;
+	overflow-y: hidden;
+	height: 100vh;
 }
 
 #custom-cursor {
@@ -54,6 +56,16 @@ canvas {
 .section1 div {
 	z-index: 2;
 }
+@keyframes textup {
+	from {
+		transform: translateY(-100px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
 
 .main-content {
 	color: white;
@@ -62,6 +74,21 @@ canvas {
 	line-height: 5.4rem;
 	word-spacing: normal;
 	font-family: "Aldrich", sans-serif;
+}
+
+.line1 {
+	opacity: 0;
+}
+.line2 {
+	opacity: 0;
+	animation-delay: 0.3s;
+}
+.line3 {
+	opacity: 0;
+	animation-delay: 0.6s;
+}
+.line-animation {
+	animation: textup 1s forwards;
 }
 
 .main-content h2 {
