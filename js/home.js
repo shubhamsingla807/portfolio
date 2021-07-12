@@ -217,8 +217,8 @@ window.onload = function () {
 	function drawFixedBalls() {
 		c.fillStyle = "#fff";
 		let circle1 = new FixedBalls(
-			sizes.width * 0.85,
-			sizes.height * 0.3,
+			sizes.width * 0.78,
+			sizes.height * 0.1,
 			sizes.width * 0.09
 		);
 		if (sizes.width < 500) {
@@ -229,8 +229,8 @@ window.onload = function () {
 		const path1 = circle1.circlePath(mouse.x, mouse.y);
 
 		let circle2 = new FixedBalls(
-			sizes.width * 0.75,
-			sizes.height * 0.7,
+			sizes.width * 0.9,
+			sizes.height * 0.45,
 			sizes.width * 0.06
 		);
 		if (sizes.width < 900) {
@@ -244,16 +244,16 @@ window.onload = function () {
 		const path2 = circle2.circlePath(mouse.x, mouse.y);
 
 		let circle3 = new FixedBalls(
-			sizes.width * 0.57,
-			sizes.height * 0.85,
-			sizes.width * 0.04
+			sizes.width * 0.2,
+			sizes.height * 0.3,
+			sizes.width * 0.09
 		);
 		if (sizes.width < 900) {
 			circle3.y = sizes.height * 0.2;
 		}
 		const path3 = circle3.circlePath(mouse.x, mouse.y);
 		let circle4 = new FixedBalls(
-			sizes.width * 0.02,
+			sizes.width * 0.04,
 			sizes.height * 0.8,
 			sizes.width * 0.05
 		);
@@ -410,16 +410,16 @@ window.onload = function () {
 	animate();
 
 	function addAnimToMainText() {
-		let line1 = document.getElementsByClassName("line1")[0];
-		let line2 = document.getElementsByClassName("line2")[0];
-		let line3 = document.getElementsByClassName("line3")[0];
+		// let line1 = document.getElementsByClassName("line1")[0];
+		// let line2 = document.getElementsByClassName("line2")[0];
+		// let line3 = document.getElementsByClassName("line3")[0];
 
-		line2.style["animation-delay"] = "300ms";
-		line3.style["animation-delay"] = "600ms";
+		// line2.style["animation-delay"] = "300ms";
+		// line3.style["animation-delay"] = "600ms";
 
-		line1.classList.add("line-animation");
-		line2.classList.add("line-animation");
-		line3.classList.add("line-animation");
+		// line1.classList.add("line-animation");
+		// line2.classList.add("line-animation");
+		// line3.classList.add("line-animation");
 
 		document.getElementById("section2-container").style.display = "block";
 	}
