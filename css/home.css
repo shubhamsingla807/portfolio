@@ -114,9 +114,9 @@ canvas {
 	letter-spacing: 0.04rem;
 }
 
-.main-content h2 {
+/* .main-content h2 {
 	font-size: 5rem;
-}
+} */
 
 #canvas1 {
 	width: 100vw;
@@ -173,7 +173,7 @@ canvas {
 .of h2 {
 	top: 40px;
 	left: 60px;
-	font-size: 4rem;
+	/* font-size: 4rem; */
 }
 .brackets {
 	display: flex;
