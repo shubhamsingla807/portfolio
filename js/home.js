@@ -29,18 +29,10 @@ window.onload = function () {
 		height: window.innerHeight,
 	};
 
-	window.addEventListener("mousemove", (e) => {
-		mouse.x = e.clientX;
-		mouse.y = e.clientY;
-
-		let custom = document.getElementById("custom-cursor");
-		if (sizes.width > 800) {
-			gsap.to(custom, {
-				top: e.y - 40,
-				left: e.x - 40,
-			});
-		}
-	});
+	// window.addEventListener("mousemove", (e) => {
+	// 	mouse.x = e.clientX;
+	// 	mouse.y = e.clientY;
+	// });
 
 	canvas.width = sizes.width;
 	canvas.height = sizes.height;
@@ -244,9 +236,9 @@ window.onload = function () {
 		const path2 = circle2.circlePath(mouse.x, mouse.y);
 
 		let circle3 = new FixedBalls(
-			sizes.width * 0.2,
-			sizes.height * 0.3,
-			sizes.width * 0.09
+			sizes.width * 0.15,
+			sizes.height * 0.25,
+			sizes.width * 0.07
 		);
 		if (sizes.width < 900) {
 			circle3.y = sizes.height * 0.2;
@@ -394,14 +386,6 @@ window.onload = function () {
 					resolveCollision(ball, fixedball);
 				}
 			});
-			// for mouse
-			if (sizes.width > 800) {
-				let collision = checkCollision(ball, mouse);
-				if (collision[0]) {
-					adjustPositions(ball, mouse, collision[1]);
-					resolveCollision(ball, mouse);
-				}
-			}
 		}
 		requestAnimationFrame(animate);
 	}
