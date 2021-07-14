@@ -283,7 +283,7 @@ window.onload = function () {
 			if (!document.hidden && balls.length < 7) {
 				let numberOfBalls = randomIntFromRange(2, 4);
 				for (let i = 0; i < numberOfBalls; i++) {
-					let radius = randomIntFromRange(10, 30);
+					let radius = randomIntFromRange(10, 20);
 					let x = randomIntFromRange(radius, sizes.width);
 					let y = -radius;
 					let dx = randomIntFromRange(-1, 1);
@@ -297,7 +297,7 @@ window.onload = function () {
 	function init() {
 		let numberOfBalls = randomIntFromRange(3, 4);
 		for (let i = 0; i < numberOfBalls; i++) {
-			let radius = randomIntFromRange(10, 30);
+			let radius = randomIntFromRange(10, 20);
 			let x = randomIntFromRange(radius, sizes.width);
 			let y = -radius;
 			let dx = randomIntFromRange(-1, 1);
@@ -411,6 +411,9 @@ window.onload = function () {
 	addAnimToMainText();
 
 	setTimeout(() => {
+		window.alert(
+			"Hey there 👋, I’m still working on my portfolio; however, you can check my case studies and other sections. Thanks for visiting ♥."
+		);
 		document.body.style["overflow-y"] = "unset";
 		document.body.style.height = "unset";
 		init();

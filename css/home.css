@@ -108,14 +108,14 @@ canvas {
 	font-size: 2.5rem;
 	font-style: normal;
 	text-align: center;
-	line-height: 5rem;
+	line-height: 4rem;
 	letter-spacing: 0.4rem;
 	word-spacing: normal;
 	letter-spacing: 0.04rem;
 }
 
 .main-content h2 {
-	font-size: 5rem;
+	font-size: 4.2rem;
 }
 
 #canvas1 {
@@ -126,17 +126,18 @@ canvas {
 .arrow {
 	display: flex;
 	justify-content: center;
+	margin-left: 20px;
 }
 
 .arrow img {
 	width: 60px;
 	height: 60px;
-	margin-top: 35px;
-	margin-left: 20px;
+	margin-top: 30px;
+	margin-left: 25px;
 }
 
 .arrow2 {
-	margin-top: 140px;
+	margin-top: 110px;
 	display: flex;
 	justify-content: center;
 	margin-left: 40px;
@@ -156,7 +157,7 @@ canvas {
 
 .of {
 	position: absolute;
-	top: 0;
+	top: -15px;
 	left: 0;
 }
 
@@ -171,16 +172,16 @@ canvas {
 }
 
 .of h2 {
-	top: 40px;
+	top: 50px;
 	left: 60px;
-	font-size: 4rem;
+	font-size: 3.5rem;
 }
 .brackets {
 	display: flex;
 	align-items: center;
 	position: absolute;
 	left: 180px;
-	top: 60px;
+	top: 40px;
 	width: max-content;
 }
 
