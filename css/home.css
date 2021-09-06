@@ -345,15 +345,20 @@ input {
 	height: 60px;
 	font-size: 1.4rem;
 	margin-top: 30px;
-	position: relative;
 	margin-left: 15%;
+	transition: 1s;
+	box-shadow: 10px 10px 0 0 #1937d7;
 }
 
 #hitme:hover {
 	cursor: pointer;
 }
 
-#hitme::after {
+#hitme:focus {
+	box-shadow: 0;
+}
+
+/* #hitme::after {
 	position: absolute;
 	content: "";
 	bottom: -10px;
@@ -364,7 +369,7 @@ input {
 	background-color: #1937d7;
 	height: inherit;
 	z-index: -1;
-}
+} */
 
 .opac0 {
 	opacity: 0;
