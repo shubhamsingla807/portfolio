@@ -71,13 +71,19 @@ header {
 }
 
 .header {
-	height: 80px;
+	height: 70px;
 	width: 100vw;
 	padding: 10px 40px;
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: justify;
+	-ms-flex-pack: justify;
 	justify-content: space-between;
 	overflow: hidden;
+	z-index: 40;
 }
+
 .progress-container {
 	width: 100%;
 	height: 1px;
@@ -91,41 +97,54 @@ header {
 }
 
 .header > div {
+	display: -webkit-box;
+	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
 	align-items: center;
-	font-family: "Montez", cursive;
 }
 
 .initials {
 	width: 50px;
 	height: 50px;
-	border-radius: 50%;
-	color: white;
-	background-color: #1937d7;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 1.2rem;
-	font-family: sans-serif;
+}
+
+.initials img {
+	width: 100%;
 }
 
 .name {
-	color: #1937d7;
 	margin-left: 30px;
 	font-size: 1.7rem;
 }
 
 .right-section div {
-	font-family: "Poppins", sans-serif;
-	margin-right: 30px;
+	padding: 10px;
+	margin-top: 10px;
 }
 
-@keyframes shadow {
+@-webkit-keyframes shadow {
 	from {
+		-webkit-box-shadow: none;
 		box-shadow: none;
 		color: black;
 	}
 	to {
+		-webkit-box-shadow: inset 0 -18px 30px -30px #3b51ce;
+		box-shadow: inset 0 -18px 30px -30px #3b51ce;
+		color: #3b51ce;
+	}
+}
+
+@keyframes shadow {
+	from {
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		color: black;
+	}
+	to {
+		-webkit-box-shadow: inset 0 -18px 30px -30px #3b51ce;
 		box-shadow: inset 0 -18px 30px -30px #3b51ce;
 		color: #3b51ce;
 	}
@@ -135,6 +154,7 @@ header {
 	text-decoration: none;
 	color: black;
 	position: relative;
+	-webkit-transition: 0.4s;
 	transition: 0.4s;
 	display: block;
 	padding: 0 10px;
@@ -149,6 +169,7 @@ header {
 	position: absolute;
 	content: "";
 	top: 100%;
+	-webkit-transition: 0.3s;
 	transition: 0.3s;
 }
 
@@ -157,7 +178,38 @@ header {
 }
 
 .rotate-right-container a:hover {
+	-webkit-animation: shadow 0.5s linear both;
 	animation: shadow 0.5s linear both;
+}
+
+/* main -image */
+.main-image {
+	width: 100vw;
+}
+
+.main-image img {
+	width: 100%;
+}
+
+/* ----------- navigator---------- */
+#navigator {
+	position: sticky;
+	top: 140px;
+	box-shadow: 0px 14px 32px 0px #0000001a;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 12vw;
+	height: 250px;
+	margin-top: 40px;
+	background-color: white;
+}
+
+#navigator a {
+	text-decoration: none;
+	color: #000000;
+	margin-bottom: 10px;
 }
 
 /* main -image */
