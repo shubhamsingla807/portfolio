@@ -132,10 +132,8 @@ window.onload = function () {
 			document.getElementsByClassName("shreader-front")[0];
 
 		btn.addEventListener("click", (e) => {
-			e.preventDefault();
-			btn.innerText = "Send Now";
-			btn.style.fontSize = "2rem";
-			btn.style.fontFamily = "inherit";
+			// e.preventDefault();
+
 			if (clicked == 0) {
 				scene.remove();
 				document.getElementsByClassName("intro")[0].style.position =
@@ -162,9 +160,14 @@ window.onload = function () {
 				tl1.to("#greeting", 0.4, { opacity: 1 });
 				tl1.to("#message-text", 0.4, { opacity: 1 }, "-=.4");
 				tl1.to("#user-name", 0.4, { opacity: 1 }, "-=.8");
+
 				document.getElementById("user-name").disabled = false;
 				document.getElementById("message-text").disabled = false;
 				document.getElementById("message-text").focus();
+
+				btn.innerText = "Send Now";
+				btn.style.fontSize = "2rem";
+				btn.style.fontFamily = "inherit";
 			} else {
 				let data = {
 					message: document.getElementById("message-text").value,
@@ -205,7 +208,11 @@ window.onload = function () {
 		// for mouse movement
 		for (let i = 0; i < overlay.length; i++) {
 			overlay[i].addEventListener("click", (e) => {
-				window.open(overlay[i].dataset.url, "_top");
+				if (i == 2) {
+					window.open(overlay[i].dataset.url, "_blank");
+				} else {
+					window.open(overlay[i].dataset.url, "_top");
+				}
 			});
 
 			overlay[i].addEventListener("mousemove", (e) => {

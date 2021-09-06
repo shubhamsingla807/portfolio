@@ -143,6 +143,25 @@ header {
 	display: flex;
 }
 
+#hitme {
+	width: 250px;
+	outline: none;
+	background-color: white;
+	height: 50px;
+	font-size: 1.4rem;
+	transition: 1s;
+	box-shadow: 6px 6px 0 0 #1937d7;
+	margin-top: 10px;
+}
+
+#hitme:hover {
+	cursor: pointer;
+}
+
+#hitme:focus {
+	box-shadow: 0;
+}
+
 .image-container {
 	width: 100%;
 }
