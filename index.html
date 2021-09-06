@@ -4,72 +4,26 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Home</title>
+		<link rel="stylesheet" href="./style.css" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Montez&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
 			rel="stylesheet"
 		/>
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Aldrich&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Hi+Melody&display=swap"
 			rel="stylesheet"
 		/>
-		<link rel="stylesheet" href="./css/home.css" />
-		<link
-			rel="shortcut icon"
-			href="./images/fevicon.png"
-			type="image/x-icon"
-		/>
-
-		<title>Home</title>
 	</head>
-	<body class="body">
-		<div class="section1" id="section1id">
-			<canvas id="canvas1"></canvas>
-
-			<div class="main-content">
-				<h2 style="margin-bottom: 20px;margin-left: -30px;">Welcome to the</h2>
-                <div class="arrow">
-                    <h2>Portfolio</h2>
-                <img src="./images/arrow.png" alt="">
-                </div>
-				
-				<div class="tantrum">
-					<div class="of">
-						<img src="./images/traingle.png" alt="" />
-						<h2>of</h2>
-					</div>
-					<div class="brackets">
-						<div class="brac">
-							<img src="./images/bracket.png" alt="" />
-						</div>
-						<div class="brack-data">
-							<p>Hi, My name is Shubham and I’m a</p>
-							<p>Digital Product Designer From India</p>
-						</div>
-						<div class="brac">
-							<img src="./images/bracket2.png" alt="" />
-						</div>
-					</div>
-				</div>
-                <div class="arrow2">
-                    <h2>Shubham Singla</h2x>
-                    <img src="./images/arrow.png" alt="">
-                </div>
-			</div>
-
-            <div id="scroll-down-animation">
-                <span class="mouse">
-                  <span class="move"></span>
-                </span>
-              </div>
-		</div>
-
-		<div id="custom-cursor"></div>
-
+	<body>
 		<header id="header">
 			<div class="header">
 				<div class="left-section">
-					<div class="initials">sS.</div>
+					<div class="initials">
+						<img src="./logo.png" alt="website logo" />
+					</div>
 					<div><span class="name">Shubham Singla</span></div>
 				</div>
 				<div class="right-section">
@@ -89,10 +43,95 @@
 			</div>
 		</header>
 
+		<section class="intro">
+			<div class="intro-left">
+				<h1 id="main-h1">
+					<div>Hi, I’m Shubham and I’m a</div>
+					<div>Product Designer who drive</div>
+					<div>decisions by data.</div>
+				</h1>
+
+				<div class="p" style="user-select: none">
+					<div class="p-wrap">
+						<p>
+							I can be your "swiss army knife" and solve all your
+							product &
+						</p>
+					</div>
+					<div class="p-wrap">
+						<p>
+							design problems, I’m passionate about humanizing
+							tech
+						</p>
+					</div>
+					<div class="p-wrap">
+						<p>experiences and social good.</p>
+					</div>
+				</div>
+
+				<div class="p" style="user-select: none">
+					<div class="p-wrap">
+						<p>
+							Currently crafting thoughtful experiences at
+							<strong>InterviewBit</strong>.
+						</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="ball ballUp fade" id="ball1">
+				<img src="./ball1.svg" />
+			</div>
+			<div class="ball ballUp fade" id="ball2">
+				<img src="./ball2.svg" />
+			</div>
+			<div class="ball ballDown fade" id="ball3">
+				<img src="./ball3.svg" />
+			</div>
+			<div class="ball ballDown fade" id="ball4">
+				<img src="./ball4.svg" />
+			</div>
+			<div class="ball ballDown fade" id="ball5">
+				<img src="./ball5.svg" />
+			</div>
+			<div class="ball ballUp fade" id="ball6">
+				<img src="./ball6.svg" />
+			</div>
+			<div class="ball opac0" id="ball7">
+				<img src="./shubham.png" />
+			</div>
+
+			<div class="intro-right">
+				<div class="shreader-front">
+					<div class="message-box">
+						<p id="greeting" class="opac0">Hey, you. Yes you! 👋🏻</p>
+						<form action="/send-message" method="post">
+							<textarea
+								type="text"
+								name="message-text"
+								id="message-text"
+								class="opac0"
+								disabled
+								placeholder="I’m just a message away. Reach out to me in case you want any help or you have some feedback for my portfolio. I’ll respond to you as soon as possible."
+							></textarea>
+							<input
+								type="text"
+								name="user-name"
+								id="user-name"
+								class="opac0"
+								disabled
+								placeholder="My Pigeon can reach you at (Your mail)"
+							/>
+							<button type="submit" id="hitme">HIT ME UP!</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
 		<div id="section2-container">
 			<div class="section2">
 				<p>CASE STUDY &nbsp; DESIGN CHALLENGE</p>
-				<h1>
+				<h1 id="b">
 					<a href="./project1.html">
 						MentorU - Platform for learners to find mentors</a
 					>
@@ -123,11 +162,15 @@
 			</div>
 		</div>
 		<div style="display: none" id="overlay-container">
-			<img src="./images/view_project.svg" alt="view project image" />
+			<img src="./view_project.svg" alt="view project image" />
 		</div>
 
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
-		<script src="./js/home.js"></script>
-		<script src="./js/grained.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TweenMax.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.2/TimelineMax.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/ScrollMagic.min.js"></script>
+		<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/16327/ScrollToPlugin3.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.6/plugins/animation.gsap.min.js"></script>
+		<script src="./script.js"></script>
 	</body>
 </html>
