@@ -287,18 +287,19 @@ section {
 .final-greet {
 	width: 100%;
 	position: absolute;
-	top: 30px;
+	top: 0;
 	text-align: center;
 	display: none;
 	opacity: 0;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	z-index: -1;
 }
 
 .final-greet img {
-	max-width: 260px;
+	max-width: 240px;
 	/* aspect-ratio: 1/1; */
 }
 
