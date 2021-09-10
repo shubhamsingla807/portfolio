@@ -299,7 +299,7 @@ section {
 
 .final-greet img {
 	max-width: 260px;
-	aspect-ratio: 1/1;
+	/* aspect-ratio: 1/1; */
 }
 
 .final-greet p {
