@@ -152,14 +152,13 @@ header {
 	transition: 1s;
 	box-shadow: 6px 6px 0 0 #1937d7;
 	margin-top: 30px;
+	transition: 0.4s;
 }
 
 #hitme:hover {
 	cursor: pointer;
-}
-
-#hitme:focus {
-	box-shadow: 0;
+	transform: translate(6px, 6px);
+	box-shadow: 0 0 #1937d7;
 }
 
 .image-container {
@@ -177,6 +176,10 @@ header {
 .info-div {
 	flex-grow: 3;
 	margin-top: 40px;
+}
+
+.info-div p {
+	width: 90%;
 }
 
 .mar-left {
@@ -408,5 +411,9 @@ footer ul li:nth-child(3) a:before {
 	}
 	.right-section div {
 		margin-right: 15px;
+	}
+	.rotate-right-container a {
+		padding: 0 3px;
+		font-size: 1rem;
 	}
 }

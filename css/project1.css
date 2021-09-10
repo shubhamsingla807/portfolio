@@ -638,6 +638,10 @@ footer ul li:nth-child(3) a:before {
 	.right-section div {
 		margin-right: 15px;
 	}
+	.rotate-right-container a {
+		padding: 0 3px;
+		font-size: 1rem;
+	}
 
 	/* footer */
 	footer {
