@@ -184,6 +184,7 @@ window.onload = function () {
 					document.getElementById("user-name").disabled = true;
 					document.getElementById("message-text").disabled = true;
 					document.getElementById("hitme").disabled = true;
+					document.getElementById("hitme").style.display = "none";
 
 					tl1.to(".final-greet", 0.4, { display: "block" }, 1.2);
 					tl1.to(".final-greet", 0.4, { opacity: 1 }, 1.2);
