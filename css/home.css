@@ -306,6 +306,7 @@ section {
 .final-greet p {
 	font-size: 1.4rem;
 	width: 94%;
+	margin-left: 3%;
 }
 
 .message-box form {
