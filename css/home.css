@@ -136,14 +136,16 @@ header {
 
 section {
 	padding: 3em;
-	height: 100vh;
+	height: 105vh;
 	position: relative;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 }
 
 .intro {
-	background: url("../images/background.svg");
+	background: linear-gradient(transparent 90%, white),
+		url("../images/background.svg");
+
 	background-repeat: repeat;
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -411,7 +413,7 @@ input {
 
 /* -section 2 */
 #section2-container {
-	padding-top: 80px;
+	padding-top: 10px;
 }
 
 .section2 {

@@ -199,7 +199,7 @@ window.onload = function () {
 		let options = {
 			root: null,
 			rootMargin: "120px",
-			threshold: 0.07,
+			threshold: 0.05,
 		};
 		let observer = new IntersectionObserver(touching, options);
 		observer.observe(document.getElementById("section2-container"));
@@ -245,9 +245,9 @@ window.onload = function () {
 		}
 	}
 
-	if (sizes.x >= 800) {
-		addInter();
-	}
+	// if (sizes.x >= 800) {
+	// 	addInter();
+	// }
 	controlViewProject();
 	addScrollAnim();
 };
