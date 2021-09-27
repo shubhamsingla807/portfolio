@@ -198,8 +198,8 @@ window.onload = function () {
 	function addInter() {
 		let options = {
 			root: null,
-			rootMargin: "100px",
-			threshild: 0.05,
+			rootMargin: "120px",
+			threshold: 0.07,
 		};
 		let observer = new IntersectionObserver(touching, options);
 		observer.observe(document.getElementById("section2-container"));
