@@ -431,7 +431,7 @@ input {
 	user-select: none;
 }
 
-.section2:hover p {
+.section2:hover .article-type {
 	color: #1937d7;
 	transition: 0.4s;
 }
