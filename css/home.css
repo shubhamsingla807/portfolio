@@ -431,6 +431,11 @@ input {
 	user-select: none;
 }
 
+.section2:hover p {
+	color: #1937d7;
+	transition: 0.4s;
+}
+
 .section2 p {
 	margin-bottom: 20px;
 }

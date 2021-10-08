@@ -54,19 +54,19 @@ window.onload = function () {
 			"#ball5",
 			1,
 			{ top: half.y - yCon, left: half.x + xCon + 100, width: width },
-			0
+			0,
 		); // red
 		tl.to(
 			"#ball4",
 			1,
 			{ top: half.y - yCon, left: half.x + xCon + 200, width: width },
-			0
+			0,
 		); // blue
 		tl.to(
 			"#ball1",
 			1,
 			{ top: half.y - yCon + 120, left: half.x + xCon, width: width },
-			0
+			0,
 		); // green
 		tl.to(
 			"#ball2",
@@ -76,7 +76,7 @@ window.onload = function () {
 				left: half.x + xCon + 100,
 				width: width,
 			},
-			0
+			0,
 		); // yellow
 		tl.to(
 			"#ball6",
@@ -86,7 +86,7 @@ window.onload = function () {
 				left: half.x + xCon + 200,
 				width: width,
 			},
-			0
+			0,
 		); // grey
 
 		tl.from(".shreader-front", 0.5, { y: 200, opacity: 0 }, 0.5);
@@ -117,7 +117,7 @@ window.onload = function () {
 						"initial";
 
 					const node = document.getElementsByClassName(
-						"scrollmagic-pin-spacer"
+						"scrollmagic-pin-spacer",
 					)[0];
 					node.replaceWith(...node.childNodes);
 
@@ -224,7 +224,7 @@ window.onload = function () {
 		// for mouse movement
 		for (let i = 0; i < overlay.length; i++) {
 			overlay[i].addEventListener("click", (e) => {
-				if (i == 2) {
+				if (i == 2 || i == 3) {
 					window.open(overlay[i].dataset.url, "_blank");
 				} else {
 					window.open(overlay[i].dataset.url, "_top");
