@@ -153,26 +153,10 @@ window.onload = function () {
 					if (data.message == "" || data.user == "") {
 						return;
 					}
-					fetch("https://shubham-mail.herokuapp.com/new-message", {
-						method: "POST",
-						mode: "cors",
-						headers: {
-							"Content-Type": "application/x-www-form-urlencoded",
-						},
-						redirect: "follow",
-						referrerPolicy: "no-referrer",
-						body: JSON.stringify(data),
-					})
-						.then((response) => {
-							console.log(response);
-							return response.json();
-						})
-						.then((data) => {
-							console.log("Success:", data);
-						})
-						.catch((error) => {
-							console.error("Error:", error);
-						});
+					window.open(
+						`mailto:shubhamsingla807@gmail.com?subject=Hey Shubham!!!&body=From : ${data.user} %0D%0AMessage : ${data.message}`,
+						"_blank",
+					);
 
 					let tl1 = new TimelineMax();
 
@@ -224,7 +208,7 @@ window.onload = function () {
 		// for mouse movement
 		for (let i = 0; i < overlay.length; i++) {
 			overlay[i].addEventListener("click", (e) => {
-				if (i == 2 || i == 3) {
+				if (i == 3) {
 					window.open(overlay[i].dataset.url, "_blank");
 				} else {
 					window.open(overlay[i].dataset.url, "_top");
