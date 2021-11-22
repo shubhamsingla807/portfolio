@@ -8,6 +8,14 @@
 	scroll-behavior: smooth;
 }
 
+* > p {
+	line-height: 1.6rem;
+}
+
+.bold {
+	font-weight: bolder;
+}
+
 .dot {
 	color: #959595;
 	font-size: xx-large;
@@ -19,6 +27,8 @@
 .section1-h2 {
 	display: flex;
 	align-items: center;
+	font-size: 0.8rem;
+	margin-bottom: 16px;
 }
 
 .section1-h2-alternate {
@@ -191,7 +201,7 @@ header {
 }
 
 .section1 p {
-	margin-bottom: 10px;
+	margin-bottom: 14px;
 }
 
 .lists {
@@ -205,7 +215,7 @@ ul {
 	margin-left: 20px;
 	color: #000000;
 	/* font-size: 0.8rem; */
-	margin-top: 10px;
+	margin-top: 14px;
 }
 
 .process-image {
@@ -237,7 +247,7 @@ ul {
 }
 
 .section3 p {
-	margin-top: 10px;
+	margin-top: 14px;
 }
 
 .img-container {
