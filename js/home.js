@@ -208,7 +208,7 @@ window.onload = function () {
 		// for mouse movement
 		for (let i = 0; i < overlay.length; i++) {
 			overlay[i].addEventListener("click", (e) => {
-				if (i == 3) {
+				if (i == 4) {
 					window.open(overlay[i].dataset.url, "_blank");
 				} else {
 					window.open(overlay[i].dataset.url, "_top");

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Reimagining the DS-ML course via storytelling</title>
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: "Poppins", sans-serif;
+			width: 100vw;
+			overflow-x: hidden;
+			font-size: 18px;
+			scroll-behavior: smooth;
+		}
+
+		#main {
+			width: 100vw;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+		#img-container {
+			width: 20%;
+		}
+		#img-container img {
+			width: 100%;
+		}
+		#nda {
+			width: 40%;
+			text-align: center;
+			font-size: large;
+		}
+		input {
+			height: 50px;
+			width: 40%;
+			padding-left: 16px;
+			font-size: large;
+			margin-top: 40px;
+			border-radius: 8px;
+			outline: none;
+			border: none;
+			background-color: #f5f5f5;
+		}
+		#wrong {
+			width: 40%;
+			color: red;
+			text-align: left;
+			font-size: medium;
+			margin-top: 4px;
+			display: none;
+		}
+		#submit {
+			width: 300px;
+			outline: none;
+			background-color: white;
+			height: 60px;
+			font-size: larger;
+			margin-top: 30px;
+			box-shadow: 10px 10px #1937d7;
+			transition: 0.4s;
+			margin-bottom: 60px;
+		}
+
+		#submit:hover {
+			cursor: pointer;
+			transform: translate(10px, 10px);
+			box-shadow: 0 0 #1937d7;
+		}
+		a {
+			text-decoration: none;
+		}
+	</style>
+	<body>
+		<div id="main">
+			<div id="img-container">
+				<img src="./images/handcuff.png" alt="handcuff locked" />
+			</div>
+			<p id="nda">
+				Thanks for visiting, but this project is under NDA and needs
+				passcode protection!
+			</p>
+			<!-- <form action="" id="form" method="post"> -->
+			<input
+				type="password"
+				placeholder="Enter Password to continue"
+				name="pass"
+				id="pass"
+				required
+			/>
+			<p id="wrong">Incorrect Password!</p>
+			<button type="submit" id="submit">Submit</button>
+			<!-- </form> -->
+			<p>
+				<a
+					href="mailto:shubhamsingla807@gmail.com?subject=Password Required&body=Hi Shubham, Please share the password for the Scaler case study"
+					target="_blank"
+					>Ask for password</a
+				>
+			</p>
+		</div>
+		<script>
+			let input = document.getElementById("pass");
+			document.getElementById("submit").addEventListener("click", () => {
+				let text = input.value;
+				if (text === "") {
+					document.getElementById("wrong").style.display = "initial";
+					document.getElementById("wrong").innerText =
+						"Please enter the password";
+				} else {
+					document.getElementById("wrong").innerText =
+						"Incorrect Password!";
+					setTimeout(() => {
+						document.getElementById("wrong").style.display =
+							"initial";
+					}, 500);
+				}
+			});
+		</script>
+	</body>
+</html>
