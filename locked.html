@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Reimagining the DS-ML course via storytelling</title>
+		<link rel="preconnect" href="https://fonts.gstatic.com" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="shortcut icon"
+			href="./images/logo.png"
+			type="image/x-icon"
+		/>
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-F03H2WSWCV"
+		></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag("js", new Date());
+
+			gtag("config", "G-F03H2WSWCV");
+		</script>
+		<script type="text/javascript">
+			(function (c, l, a, r, i, t, y) {
+				c[a] =
+					c[a] ||
+					function () {
+						(c[a].q = c[a].q || []).push(arguments);
+					};
+				t = l.createElement(r);
+				t.async = 1;
+				t.src = "https://www.clarity.ms/tag/" + i;
+				y = l.getElementsByTagName(r)[0];
+				y.parentNode.insertBefore(t, y);
+			})(window, document, "clarity", "script", "8n6xo33lux");
+		</script>
+	</head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			-webkit-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: "Poppins", sans-serif;
+			width: 100vw;
+			overflow-x: hidden;
+			font-size: 18px;
+			scroll-behavior: smooth;
+		}
+
+		#main {
+			width: 100vw;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+		}
+		#img-container {
+			width: 20%;
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+			margin-top: 60px;
+		}
+		#img-container img {
+			width: 100%;
+			margin-top: 10px;
+		}
+		#nda {
+			width: 40%;
+			text-align: center;
+			font-size: large;
+		}
+		input {
+			height: 50px;
+			width: 40%;
+			padding-left: 16px;
+			font-size: large;
+			margin-top: 40px;
+			border-radius: 8px;
+			outline: none;
+			border: none;
+			background-color: #f5f5f5;
+		}
+		#wrong {
+			width: 40%;
+			color: red;
+			text-align: left;
+			font-size: medium;
+			margin-top: 4px;
+			display: none;
+		}
+		#submit {
+			width: 300px;
+			outline: none;
+			background-color: white;
+			height: 60px;
+			font-size: larger;
+			margin-top: 30px;
+			box-shadow: 10px 10px #1937d7;
+			transition: 0.4s;
+			margin-bottom: 60px;
+		}
+
+		#submit:hover {
+			cursor: pointer;
+			transform: translate(10px, 10px);
+			box-shadow: 0 0 #1937d7;
+		}
+		a {
+			text-decoration: none;
+		}
+
+		/* header */
+		header {
+			position: absolute;
+			z-index: 40;
+		}
+
+		.header {
+			height: 70px;
+			width: 100vw;
+			padding: 10px 40px;
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-pack: justify;
+			-ms-flex-pack: justify;
+			justify-content: space-between;
+			overflow: hidden;
+			background-color: white;
+			z-index: 40;
+		}
+
+		.progress-container {
+			width: 100%;
+			height: 2px;
+			background: #ccc;
+		}
+
+		.header > div {
+			display: -webkit-box;
+			display: -ms-flexbox;
+			display: flex;
+			-webkit-box-align: center;
+			-ms-flex-align: center;
+			align-items: center;
+		}
+
+		.left-section {
+			cursor: pointer;
+		}
+
+		.initials {
+			width: 50px;
+			height: 50px;
+		}
+
+		.initials img {
+			width: 100%;
+		}
+
+		.name {
+			margin-left: 30px;
+			font-size: 1.7rem;
+		}
+
+		.right-section div {
+			padding: 10px;
+			margin-top: 10px;
+		}
+
+		@-webkit-keyframes shadow {
+			from {
+				-webkit-box-shadow: none;
+				box-shadow: none;
+				color: black;
+			}
+			to {
+				-webkit-box-shadow: inset 0 -18px 30px -30px #3b51ce;
+				box-shadow: inset 0 -18px 30px -30px #3b51ce;
+				color: #3b51ce;
+			}
+		}
+
+		@keyframes shadow {
+			from {
+				-webkit-box-shadow: none;
+				box-shadow: none;
+				color: black;
+			}
+			to {
+				-webkit-box-shadow: inset 0 -18px 30px -30px #3b51ce;
+				box-shadow: inset 0 -18px 30px -30px #3b51ce;
+				color: #3b51ce;
+			}
+		}
+
+		.rotate-right-container a {
+			text-decoration: none;
+			color: black;
+			position: relative;
+			-webkit-transition: 0.4s;
+			transition: 0.4s;
+			display: block;
+			padding: 0 10px;
+			padding-bottom: 10px;
+		}
+
+		.rotate-right-container a::after {
+			width: 0;
+			left: 0;
+			height: 1px;
+			background-color: #3b51ce;
+			position: absolute;
+			content: "";
+			top: 100%;
+			-webkit-transition: 0.3s;
+			transition: 0.3s;
+		}
+
+		.rotate-right-container a:hover::after {
+			width: 100%;
+		}
+
+		.rotate-right-container a:hover {
+			-webkit-animation: shadow 0.5s linear both;
+			animation: shadow 0.5s linear both;
+		}
+	</style>
+	<body>
+		<header id="header">
+			<div class="header">
+				<div class="left-section">
+					<div class="initials">
+						<img src="./images/logo.png" alt="website logo" />
+					</div>
+					<div><span class="name">Shubham Singla</span></div>
+				</div>
+				<div class="right-section">
+					<div class="rotate-right-container">
+						<a href="./index.html" style="color: #1937d7">Work </a>
+					</div>
+					<div class="rotate-right-container">
+						<a href="./about.html"> About Me </a>
+					</div>
+					<div class="rotate-right-container">
+						<a href="./playground.html"> Playground </a>
+					</div>
+				</div>
+			</div>
+			<div class="progress-container">
+				<div class="progress-bar" id="myBar"></div>
+			</div>
+		</header>
+		<div id="main">
+			<div id="img-container">
+				<img src="./images/handcuff.png" alt="handcuff locked" />
+			</div>
+			<p id="nda">
+				Thanks for visiting, but this project is under NDA and needs
+				passcode protection!
+			</p>
+			<!-- <form action="" id="form" method="post"> -->
+			<input
+				type="password"
+				placeholder="Enter Password to continue"
+				name="pass"
+				id="pass"
+				required
+			/>
+			<p id="wrong">Incorrect Password!</p>
+			<button type="submit" id="submit">Submit</button>
+			<!-- </form> -->
+			<p>
+				<a
+					href="mailto:shubhamsingla807@gmail.com?subject=Password Required&body=Hi Shubham, Please share the password for the Scaler case study"
+					target="_blank"
+					>Ask for password</a
+				>
+			</p>
+		</div>
+		<script>
+			let input = document.getElementById("pass");
+			document.getElementById("submit").addEventListener("click", () => {
+				let text = input.value;
+				if (text === "") {
+					document.getElementById("wrong").style.display = "initial";
+					document.getElementById("wrong").innerText =
+						"Please enter the password";
+				} else if (text === "Xga3fP") {
+					window.open(
+						"./Reimagining_the_DS-ML_course_via_storytelling.html",
+						"_top",
+					);
+				} else {
+					document.getElementById("wrong").innerText =
+						"Incorrect Password!";
+					setTimeout(() => {
+						document.getElementById("wrong").style.display =
+							"initial";
+					}, 500);
+				}
+			});
+			document
+				.getElementsByClassName("left-section")[0]
+				.addEventListener("click", () => {
+					window.open("./index.html", "_top");
+				});
+		</script>
+	</body>
+</html>

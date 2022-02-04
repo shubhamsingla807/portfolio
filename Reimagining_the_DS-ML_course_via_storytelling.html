@@ -11,10 +11,17 @@
 			rel="stylesheet"
 		/>
 		<link
+			rel="stylesheet"
+			href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+			integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+			crossorigin="anonymous"
+		/>
+		<link
 			rel="shortcut icon"
 			href="./images/logo.png"
 			type="image/x-icon"
 		/>
+		<link rel="stylesheet" href="./css/dsc.css" />
 		<script
 			async
 			src="https://www.googletagmanager.com/gtag/js?id=G-F03H2WSWCV"
@@ -29,210 +36,21 @@
 			gtag("config", "G-F03H2WSWCV");
 		</script>
 		<script type="text/javascript">
-			(function(c,l,a,r,i,t,y){
-				c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-				t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-				y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+			(function (c, l, a, r, i, t, y) {
+				c[a] =
+					c[a] ||
+					function () {
+						(c[a].q = c[a].q || []).push(arguments);
+					};
+				t = l.createElement(r);
+				t.async = 1;
+				t.src = "https://www.clarity.ms/tag/" + i;
+				y = l.getElementsByTagName(r)[0];
+				y.parentNode.insertBefore(t, y);
 			})(window, document, "clarity", "script", "8n6xo33lux");
 		</script>
+		<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 	</head>
-	<style>
-		* {
-			margin: 0;
-			padding: 0;
-			-webkit-box-sizing: border-box;
-			box-sizing: border-box;
-		}
-
-		body {
-			font-family: "Poppins", sans-serif;
-			width: 100vw;
-			overflow-x: hidden;
-			font-size: 18px;
-			scroll-behavior: smooth;
-		}
-
-		#main {
-			width: 100vw;
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-		}
-		#img-container {
-			width: 20%;
-			-webkit-user-select: none;
-			-moz-user-select: none;
-			-ms-user-select: none;
-			user-select: none;
-			margin-top: 60px;
-		}
-		#img-container img {
-			width: 100%;
-			margin-top: 10px;
-		}
-		#nda {
-			width: 40%;
-			text-align: center;
-			font-size: large;
-		}
-		input {
-			height: 50px;
-			width: 40%;
-			padding-left: 16px;
-			font-size: large;
-			margin-top: 40px;
-			border-radius: 8px;
-			outline: none;
-			border: none;
-			background-color: #f5f5f5;
-		}
-		#wrong {
-			width: 40%;
-			color: red;
-			text-align: left;
-			font-size: medium;
-			margin-top: 4px;
-			display: none;
-		}
-		#submit {
-			width: 300px;
-			outline: none;
-			background-color: white;
-			height: 60px;
-			font-size: larger;
-			margin-top: 30px;
-			box-shadow: 10px 10px #1937d7;
-			transition: 0.4s;
-			margin-bottom: 60px;
-		}
-
-		#submit:hover {
-			cursor: pointer;
-			transform: translate(10px, 10px);
-			box-shadow: 0 0 #1937d7;
-		}
-		a {
-			text-decoration: none;
-		}
-
-		/* header */
-		header {
-			position: absolute;
-			z-index: 40;
-		}
-
-		.header {
-			height: 70px;
-			width: 100vw;
-			padding: 10px 40px;
-			display: -webkit-box;
-			display: -ms-flexbox;
-			display: flex;
-			-webkit-box-pack: justify;
-			-ms-flex-pack: justify;
-			justify-content: space-between;
-			overflow: hidden;
-			background-color: white;
-			z-index: 40;
-		}
-
-		.progress-container {
-			width: 100%;
-			height: 2px;
-			background: #ccc;
-		}
-
-		.header > div {
-			display: -webkit-box;
-			display: -ms-flexbox;
-			display: flex;
-			-webkit-box-align: center;
-			-ms-flex-align: center;
-			align-items: center;
-		}
-
-		.left-section {
-			cursor: pointer;
-		}
-
-		.initials {
-			width: 50px;
-			height: 50px;
-		}
-
-		.initials img {
-			width: 100%;
-		}
-
-		.name {
-			margin-left: 30px;
-			font-size: 1.7rem;
-		}
-
-		.right-section div {
-			padding: 10px;
-			margin-top: 10px;
-		}
-
-		@-webkit-keyframes shadow {
-			from {
-				-webkit-box-shadow: none;
-				box-shadow: none;
-				color: black;
-			}
-			to {
-				-webkit-box-shadow: inset 0 -18px 30px -30px #3b51ce;
-				box-shadow: inset 0 -18px 30px -30px #3b51ce;
-				color: #3b51ce;
-			}
-		}
-
-		@keyframes shadow {
-			from {
-				-webkit-box-shadow: none;
-				box-shadow: none;
-				color: black;
-			}
-			to {
-				-webkit-box-shadow: inset 0 -18px 30px -30px #3b51ce;
-				box-shadow: inset 0 -18px 30px -30px #3b51ce;
-				color: #3b51ce;
-			}
-		}
-
-		.rotate-right-container a {
-			text-decoration: none;
-			color: black;
-			position: relative;
-			-webkit-transition: 0.4s;
-			transition: 0.4s;
-			display: block;
-			padding: 0 10px;
-			padding-bottom: 10px;
-		}
-
-		.rotate-right-container a::after {
-			width: 0;
-			left: 0;
-			height: 1px;
-			background-color: #3b51ce;
-			position: absolute;
-			content: "";
-			top: 100%;
-			-webkit-transition: 0.3s;
-			transition: 0.3s;
-		}
-
-		.rotate-right-container a:hover::after {
-			width: 100%;
-		}
-
-		.rotate-right-container a:hover {
-			-webkit-animation: shadow 0.5s linear both;
-			animation: shadow 0.5s linear both;
-		}
-	</style>
 	<body>
 		<header id="header">
 			<div class="header">
@@ -258,55 +76,854 @@
 				<div class="progress-bar" id="myBar"></div>
 			</div>
 		</header>
-		<div id="main">
-			<div id="img-container">
-				<img src="./images/handcuff.png" alt="handcuff locked" />
-			</div>
-			<p id="nda">
-				Thanks for visiting, but this project is under NDA and needs
-				passcode protection!
-			</p>
-			<!-- <form action="" id="form" method="post"> -->
-			<input
-				type="password"
-				placeholder="Enter Password to continue"
-				name="pass"
-				id="pass"
-				required
-			/>
-			<p id="wrong">Incorrect Password!</p>
-			<button type="submit" id="submit">Submit</button>
-			<!-- </form> -->
-			<p>
-				<a
-					href="mailto:shubhamsingla807@gmail.com?subject=Password Required&body=Hi Shubham, Please share the password for the Scaler case study"
-					target="_blank"
-					>Ask for password</a
-				>
-			</p>
+
+		<div class="main-image">
+			<img src="./images/dsc/main.png" alt="prople in meeting" />
 		</div>
+
+		<div id="navigator">
+			<a href="#">Overview</a>
+			<a href="#Research">Research</a>
+			<a href="#Define">Define</a>
+			<a href="#Ideation">Ideation</a>
+			<a href="#Solution">Solution</a>
+			<a href="#Success_Metric">Metrics</a>
+			<a href="#Learning">Learning</a>
+		</div>
+
+		<main>
+			<section class="section1 margin40-15">
+				<h1>Scaler - Data Science</h1>
+				<div class="section1-h2">
+					<h2>INTERNSHIP Project</h2>
+					<span class="section1-dot">.</span>
+					<h2>UX Research & DESIGN</h2>
+					<span class="section1-dot">.</span>
+					<h2>Product</h2>
+				</div>
+				<p>
+					In this work, I’m representing how I design the overall
+					structure for a data science course, not only to generate
+					the revenue, but also to really help the users to identify
+					the best for them.
+				</p>
+				<p>
+					IMP - To comply with the NDA, some design process and design
+					details will not be shown.
+				</p>
+				<p>
+					P.S. - The whole case study could be little content heavy,
+					please bear with me, I tried to put the important stuff only
+					😅
+				</p>
+
+				<div class="lists">
+					<div>
+						<h3>Project Context ✍🏻</h3>
+						<ul>
+							<li>12 Week</li>
+							<li>Team Project</li>
+							<li>Work for Scaler - Internship</li>
+						</ul>
+					</div>
+					<div>
+						<h3>My Role ️🤵</h3>
+						<ul>
+							<li>
+								UX Research : Surveys, Interviews, Market
+								Research
+							</li>
+							<li>
+								Product : Defining goals & metrics Data
+								analysis, Usability Testings
+							</li>
+							<li>Visual Design : Design System, UI Design</li>
+						</ul>
+					</div>
+					<div>
+						<h3>Team 💪🏻</h3>
+						<ul>
+							<li>Mudit Goel - PM & Lead</li>
+							<li>Pushti Bhatia - Prod. Designer</li>
+							<li>Siddharth & others - Tech</li>
+							<li>Anu & others - Content & Brand</li>
+							<li>Govind - PD Intern</li>
+							<li>Shubham (Me) - PD Intern</li>
+						</ul>
+					</div>
+				</div>
+
+				<h3>Process</h3>
+				<div class="process-image">
+					<img
+						src="./images/dsc/1.png"
+						alt="project process workflow"
+					/>
+				</div>
+				<p class="underline blue" style="text-align: center">
+					Brief Overview
+				</p>
+				<p>
+					We at Scaler, had different programs going on for
+					professionals & students for mastering tech jobs, we decided
+					to launch one program related to Data Science & ML as well,
+					for the same we had to layout the strategy and need to
+					design the overall structure that leads to more growth at
+					Scaler. GO checkout the live website here.
+				</p>
+				<h4>Impact it created :</h4>
+				<ul>
+					<li><small>Generated revenue of US $12M ARR</small></li>
+					<li><small>Achieved NPS of (DSML Advance): 76.2</small></li>
+					<li>
+						<small
+							>Helped team to scale from 0-1 with in the first
+							month of launch</small
+						>
+					</li>
+				</ul>
+			</section>
+
+			<section id="Research" class="section2">
+				<img src="./images/dsc/2.png" alt="process flow" />
+			</section>
+
+			<section class="section3">
+				<p>
+					Initially we had an understanding of what we need to build,
+					but we don’t know what exactly are the needs of our users or
+					what are the things that may help us in changing the way
+					user thinks about a paid course. So, initially we had a few
+					questions in our mind -
+				</p>
+				<ul>
+					<li>
+						What are the problems users facing while enrolling into
+						a DSc course?
+					</li>
+					<li>What are their thoughts regarding DSc & ML?</li>
+					<li>How can we meet needs of different user groups?</li>
+					<li>Are people really interested about DSc & ML?</li>
+					<li>What extra values we can provide to the users?</li>
+				</ul>
+				<p>
+					We definitely do had a lot more questions, and we know
+					research could be the only option to get answer to all those
+					questions we had. So, here are the respective steps we
+					followed -
+				</p>
+				<ul>
+					<li>
+						Stakeholders Meeting - This was setup to understand the
+						company goals & needs, stakeholders do had a larger view
+						and eventually the course curriculum is to be prepared
+						by them only, so initially clearing doubts from here
+						remain helpful for us. From there we got to know about
+						different features that we’re introducing, but to
+						understand better what are the user needs, we deep dive
+						into further research.
+					</li>
+					<li>
+						Competitve Research - Before proceding with the user
+						surveys, we analysed what our competitors are offering
+						and how can we differentiate ourselves from them, we
+						analysed over 12 different courses and map them in a
+						sheet. From there, we understand the current market
+						trends, here’s a screenshot to that -
+					</li>
+				</ul>
+
+				<div class="process-image">
+					<img
+						src="./images/dsc/3.png"
+						alt="project process workflow"
+					/>
+				</div>
+				<p class="img-text">
+					Hided a few details here and also couldn’t display the
+					overall research due to NDA
+				</p>
+				<ul>
+					<li>
+						Conjoint Analysis - This is something I performed for
+						the very first time, it ask respondents to trade one
+						option for another. We conducted this to understand
+						which features users prefers the most, for ex - “Whether
+						they prefer a certificate” over “Expert Mentors” or
+						vice-versa. We want to do this because, we had many
+						USP’s to show, but highlighting important one, stands us
+						apart from the competitors. Here are the points on which
+						we want to conduct this -
+					</li>
+				</ul>
+				<ul>
+					<li>Real data projects</li>
+					<li>Network with Alumni from top companies</li>
+					<li>Mentorship from top industry mentors and advisors</li>
+					<li>Placement Assistance</li>
+					<li>Degree from top universities</li>
+					<li>Research papers</li>
+				</ul>
+				<div class="process-image">
+					<img
+						src="./images/dsc/4.png"
+						alt="project process workflow"
+					/>
+				</div>
+				<p class="img-text">
+					Here’s how we finally prepared different choices to choose
+					from(2nd img) & yes we need to apply Permutaions &
+					Combinations(1st img) into it :P
+				</p>
+				<p>
+					I’ll quickly try to explain what we did here, so in this we
+					had 6 different choices to ask from the users, accordingly
+					we grouped different choices & again grouped them together
+					in 3, this way he had a total of 20 groups (user needs to
+					choose from a set of 2 choices, 10 times) and by doing so in
+					the end we would be having some data, and after calcultions
+					we can analyse what are the most important things for a
+					user. But this method FAILED in the end, when we analyse
+					results.
+				</p>
+				<p>
+					This method didn’t work out well as we expected, we got
+					biased responses from this, due to large number of choices
+					people started filling randomly, which we got to know after
+					analysing the whole data, thus we stopped this and moved
+					further with the user surveys.
+				</p>
+				<ul>
+					<li>
+						User Surveys - So here now we conducted a survey from
+						which we received 208 responses collectively, summary to
+						that is here -
+					</li>
+					<ul>
+						<li>
+							User Group: A mix or Undergrads and working
+							professionals
+						</li>
+						<li>
+							Shared on: Discord, Scaler chat, LinkedIn, Instagram
+						</li>
+						<li>
+							Q1. Are you a working professional or an
+							Undergraduate Student
+							<ul>
+								<li>I’m a Working Professional: 172 (82.6%)</li>
+								<li>
+									I’m an Undergraduate Student: 36 (17.3%)
+								</li>
+							</ul>
+						</li>
+
+						<li>
+							Q2. Would you be interested in learning DataScience
+							and getting a high jump in your career?
+
+							<ul>
+								<li>Oh Yes, I’m Interested : 152 (73%)</li>
+								<li>
+									Didn’t think of it, but I can explore: 50
+									(24%)
+								</li>
+								<li>No, Not my cup of tea: 9 (4.3%)</li>
+							</ul>
+						</li>
+						<li>
+							Q3. What are the 3 most important features while
+							considering a Data-Science course
+
+							<ul>
+								<li>
+									Work on Projects created with top companies:
+									175 (86.6%)
+								</li>
+								<li>
+									Get Placement assistance at top companies:
+									134 (66.3%)
+								</li>
+								<li>
+									Get 1:1 guidance from Mentors from top
+									companies: 120 (59.4%)
+								</li>
+								<li>
+									Network with alumni and peers from top
+									companies: 75 (37.1%)
+								</li>
+								<li>
+									Learn to publish and read Research papers:
+									64 (31.6%)
+								</li>
+								<li>
+									Receive certificate from top university: 38
+									(18.8%)
+								</li>
+							</ul>
+						</li>
+					</ul>
+				</ul>
+				<p>
+					An upper hand for us as people are actually considering
+					learnings and skills over a degree/certificate, also from
+					this we got to know people(73%) are really interested in
+					learning Data Science & ML.
+				</p>
+				<p style="text-align: center">
+					Survey Link -
+					<a href="https://qp3c921jeod.typeform.com/to/eUsSwYQb">
+						https://qp3c921jeod.typeform.com/to/eUsSwYQb
+					</a>
+				</p>
+
+				<h4>Insights from the research</h4>
+				<p>
+					Now after spending a good time on research and finding the
+					right information, it’s time to list down the findings -
+				</p>
+				<div class="insights-container">
+					<div class="one-insight" data-aos="fade-right">
+						<h5>1. Practical projects</h5>
+						<p>
+							We found that, users are very interested in doing
+							practical projects, because in Data science, one
+							play with large number of data, so user wants the
+							data should be real and projects should be taken up
+							from real life scenarios, so we tied up with big
+							companies like Zomato, Uber etc. to get the real
+							data.
+						</p>
+					</div>
+					<div class="one-insight" data-aos="fade-right">
+						<h5>2. Publishing research papers</h5>
+						<p>
+							One important insight that we found is, users are
+							very interested in knowing how to read and publish a
+							research paper. Even this is one of the important
+							USP, that stand us apart from the competitors. These
+							small findings are what that makes a course more
+							successful.
+						</p>
+					</div>
+					<div class="one-insight" data-aos="fade-right">
+						<h5>3. Good mentors >>>> Certificates</h5>
+						<p>
+							Certificates are something that sometimes play an
+							important role, especially when it’s recognised from
+							the top universities, but what we found is users
+							preffered mentors, instrutcotrs & advisors more than
+							a certificate, which is even a good sign how tech
+							industry is changing.
+						</p>
+					</div>
+					<div class="one-insight" data-aos="fade-right">
+						<h5>4. Course curriculum is very important</h5>
+						<p>
+							As this course is for people who’re already working
+							in tech-industry, we found that these people are
+							more interested in knowing the curriculum in very
+							detail, so we priotised that and had defined the
+							curriculum detailed in our design.
+						</p>
+					</div>
+					<div class="one-insight" data-aos="fade-right">
+						<h5>5. Building trust</h5>
+						<p>
+							One of the major factor that comes before buying any
+							course is trust, in research we found that people
+							buy more if someone recommends the course to them
+							(Mouth-marketing), so we also want to build that
+							kind of trust via our course.
+						</p>
+					</div>
+				</div>
+				<p>
+					There are some more insights that helps us in moving forward
+					, but here I try to highlight the important ones :)
+				</p>
+			</section>
+
+			<section id="Define" class="section2">
+				<img src="./images/dsc/5.png" alt="process flow" />
+			</section>
+
+			<section class="section5">
+				<p>
+					We got some good insights after doing research, now we
+					shared the research insights with our stakeholders to get
+					their views/feedbacks, asking initial feedback is so much
+					important at every stage, because it allows us to iterate
+					more and deliever better. After this, we need to clearly
+					define things and make the right information out of the data
+					we collected.
+				</p>
+				<p>
+					Although we’re targetting only working professionals, but
+					under them also we have categorised our users under
+					different segements, depending on the their current
+					occupation & needs and here are three different personas
+					that we created to better understand every user needs and
+					their pain points -
+				</p>
+
+				<div class="resume-container">
+					<div class="one-resume">
+						<img src="./images/dsc/6.png" alt="" />
+					</div>
+					<div class="one-resume">
+						<img src="./images/dsc/7.png" alt="" />
+					</div>
+					<div class="one-resume">
+						<img src="./images/dsc/8.png" alt="" />
+					</div>
+				</div>
+				<p class="img-text">
+					Empathising with users is crucial, without knowing them by
+					heart building product is difficult :)
+				</p>
+				<p>
+					Based on these User persona problems, we laid out solution
+					for each of them in a sheet, a small view of it can be seen
+					below -
+				</p>
+				<div class="process-image">
+					<img
+						src="./images/dsc/9.png"
+						alt="project process workflow"
+					/>
+				</div>
+				<p>
+					Now we do have some understanding of what a user needs and
+					probably how we can provide them, but before jumping into
+					building wireframes, we want to define a few metrics for the
+					product, so here we used HEART framework to define those
+					metrics -
+				</p>
+				<div class="process-image">
+					<img
+						src="./images/dsc/10.png"
+						alt="project process workflow"
+					/>
+				</div>
+			</section>
+
+			<section id="Ideation" class="section2">
+				<img src="./images/dsc/11.png" alt="process flow" />
+			</section>
+
+			<section class="section6">
+				<p>
+					Here comes one of the interesting part of the whole design
+					process, where we started making something for the end user.
+					After summarizing overall research we do have an idea of
+					what our users want, so we started off with brainstorming,
+					thinking of different structures/layout to represent the
+					overall data.
+				</p>
+				<p>
+					We first build the user flow, this is based upon how should
+					we integrate the whole Data Science program with Scaler
+					products, as we had diff-diff products and making a
+					separation from all of them is necessary. Here’s how the
+					flow looks like -
+				</p>
+
+				<div class="process-image">
+					<img
+						src="./images/dsc/12.png"
+						alt="project process workflow"
+					/>
+				</div>
+				<p>
+					We wanted to build the whole website in a way, that speaks
+					up for itself and engage the user via storytelling.
+					Considering all these factors, we build some wireframes and
+					started with Usability Testings to validate those.
+				</p>
+				<div class="process-image">
+					<img
+						src="./images/dsc/13.png"
+						alt="project process workflow"
+					/>
+				</div>
+				<p class="img-text">
+					These are wireframes we had created after multiple
+					iterations, here I’ve divided them itno 3 parts to show the
+					whole design
+				</p>
+				<p>
+					Now after building this, we started with Usability Testing,
+					we reached out to sales team to get some folks for the UT’s.
+					Once we got the right users, we mailed & informed them about
+					UT’s and thus proceeded with the same. We don’t only just
+					test our product, but this is more of a talking with the
+					users, as this helps in understanding their general needs
+					more, that might remain uncover in Research phase.
+				</p>
+				<div class="process-image">
+					<img
+						src="./images/dsc/14.png"
+						alt="project process workflow"
+					/>
+				</div>
+				<p class="img-text">
+					A short glimpse to the Usability Testings we did :)
+				</p>
+				<p>
+					We talked with a total of 17 users, who all are
+					professionals working at diff organisations. After this, we
+					recorded responses of them and analyse all recordings. Major
+					findings that we need to work upon -
+				</p>
+				<div class="insights-container2">
+					<div class="one-insight" data-aos="fade-right">
+						<h5>Beginner Friendly content</h5>
+						<p>
+							While doing Usaility Testing’s we understand, that
+							the users also wants to see some beginner friendly
+							content, not all visitors coming to the site are pro
+							at Data Science. Users wants to see some basic
+							blogs, videos etc.
+						</p>
+					</div>
+					<div class="one-insight" data-aos="fade-right">
+						<h5>Small questions format</h5>
+						<p>
+							We analysed that few of the users, quickly skims
+							through content, so we decided to give answers a big
+							format, so that they can have a look and read the
+							content along.
+						</p>
+					</div>
+					<div class="one-insight" data-aos="fade-right">
+						<h5>Detailed Projects</h5>
+						<p>
+							Along with a detailed curriculum users wants to see
+							the detailed projects as well, according to them a
+							good description of projects should be there, it
+							helps them to better understand the course.
+						</p>
+					</div>
+					<div class="one-insight" data-aos="fade-right">
+						<h5>Instructors + TA’s >> Mentor</h5>
+						<p>
+							So, at Scaler we do have mentors, instructors,
+							advisors & TA’s for the students to help them
+							throughout the course. We want to figure out
+							acording to students who are most important for
+							them, we found that users consider Instructors to be
+							more important then a mentor, so this helps us in
+							building design accordingly.
+						</p>
+					</div>
+					<div
+						class="one-insight"
+						style="background-color: #c8ffc7"
+						data-aos="fade-right"
+					>
+						<h5>Average Rating - 8.6</h5>
+						<p>
+							We asked from users, if you need to rate the work
+							(Not visually), then how much you rate that, avergae
+							rating comes out to be 8.6.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<section id="Solution" class="section2">
+				<img src="./images/dsc/15.png" alt="process flow" />
+			</section>
+
+			<section class="section7">
+				<p>
+					After finalising the overall structure & flow, we moved out
+					on the final work i.e. Visual Design. We first started with
+					making our Design system, as previously we don’t have a
+					universal design system, so this is a good chance for us to
+					work on that. For now we’ve defined the typography and color
+					palletes that we need to use in that, here communicating
+					with dev team is one of the very important thing, as the
+					design tokens could be named only after the collaboration.
+				</p>
+
+				<div class="process-image">
+					<img
+						src="./images/dsc/16.png"
+						alt="project process workflow"
+					/>
+				</div>
+
+				<p>
+					Once we have our foundations i.e. - Colors, Typography,
+					Grids, spacing, layout & elevation defined, we moved out on
+					making necessary components, I used the word necessary
+					because, we need to build things fast so at that current
+					moment, we don’t go for building all componets, but one
+					those are needed immediately like text-fields, buttons etc.
+				</p>
+				<p>
+					Also deciding a color theme is bit challenging for us, we
+					tried mutliple themes and variants, Data-Science course is a
+					kind of premium course, as it’s fees as well as ROI is very
+					high, generally ML folks earns a lot in tech indutsry, so we
+					want to make sure the overall website gives a premium
+					feeling, thus we decided to go with a dark theme with a
+					touch of glassmorphism.
+				</p>
+
+				<div class="img-scroll-con">
+					<button><</button>
+					<div class="img-scroll">
+						<img src="./images/dsc/17.png" alt="" />
+					</div>
+					<button>></button>
+				</div>
+				<p class="img-text">
+					Multiple themes and iterations we did, showing a few here
+				</p>
+				<p>
+					After going through all the iterations, we have finallized
+					one them and thereafter designed the website by using the
+					defined guidelines, as I said earlier we want to make a
+					storytelling experience for our users, so rather than
+					lisitng all the features we do have, we put them in
+					questions format, as the end goal of a person who’s coming
+					to any website is to solve their respective problems, now
+					this way we won’t only helping getting more leads, but we
+					are truly helping our users in finding out for what & why
+					they come on our website 😎
+				</p>
+
+				<div class="process-image">
+					<img
+						src="./images/dsc/18.png"
+						alt="project process workflow"
+					/>
+				</div>
+
+				<p class="img-text">
+					Here comes the components, displaying a few from our library
+				</p>
+				<div class="process-image">
+					<img
+						src="./images/dsc/19.png"
+						alt="project process workflow"
+					/>
+				</div>
+				<p class="img-text">
+					Showing few sections of the final design, whole product
+					could be found here
+				</p>
+
+				<p>
+					From the Microsoft Clarity and GA (Analytics tool), we saw a
+					larger audience is coming from mobile as well, so building a
+					good experience for mobile is cruciual as same as for the
+					web. Here are the few design screens for the mobile users as
+					well -
+				</p>
+
+				<div class="process-image">
+					<img
+						src="./images/dsc/20.png"
+						alt="project process workflow"
+					/>
+				</div>
+			</section>
+
+			<section id="Success_Metric" class="section2">
+				<img src="./images/dsc/21.png" alt="process flow" />
+			</section>
+
+			<section class="section8">
+				<p>
+					After aligning all the stakeholders with the design, we
+					collaborated with the dev team to ship pixel perfect design.
+					We try to work along the flexbox and grids they’re using and
+					handed off the design with redlines. Few screenshots showing
+					the hand off here -
+				</p>
+
+				<div class="process-image">
+					<img
+						src="./images/dsc/22.png"
+						alt="project process workflow"
+					/>
+				</div>
+				<p class="img-text">Handoff with Redlines</p>
+
+				<p>
+					To make sure we’re getting the right growth we decided to
+					measure various metrics, even we installed Microscoft
+					Clarity in DSc page to check data of the old page that is
+					live already, few metrics that we look for -
+				</p>
+
+				<ul>
+					<li>
+						Acquisition
+						<ul>
+							<li># of website visits</li>
+							<li># of and % new sign ups</li>
+							<li># of brochure/curriculum downloads</li>
+						</ul>
+					</li>
+
+					<li>
+						Activation
+						<ul>
+							<li># and % of users applied for the test</li>
+							<li># and % of users who passes the test</li>
+							<li>
+								# and % of user who passes the test and enrolled
+								for the course
+							</li>
+							<li>
+								# and % of users who passed the test and still
+								not enrolled for the course
+							</li>
+							<li>
+								# of users who opted for a call back/ support
+							</li>
+						</ul>
+					</li>
+					<li>
+						Engagement
+						<ul>
+							<li>Avg scroll depth</li>
+							<li>Avg active + passive session time</li>
+						</ul>
+					</li>
+					<li>
+						North Star Metrics
+						<ul>
+							<li>
+								# of users successfully enrolling into the
+								course
+							</li>
+							<li># Avg NPS</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<section id="Learning" class="section2">
+				<img src="./images/dsc/23.png" alt="process flow" />
+			</section>
+
+			<section class="section9">
+				<h4>
+					Now the time is for learnings and see where things could be
+					improved -
+				</h4>
+				<ul>
+					<li>
+						Let’s first talk about the challenges & mistakes -
+						<ul>
+							<li>
+								We missed the deadlines, yes we did. Having a
+								very clear timeline initially help in
+								distributing the tasks accordingly.
+							</li>
+							<li>
+								Building components initally. We started with
+								building components, but some times we forgot to
+								build for ex- header, footer, that causesnew
+								problems in the end, when we need to modify
+								color or any other part.
+							</li>
+							<li>
+								Getting feedback early & often. It applies to
+								every stage of the process whether, it’s rsearch
+								or design. Earlier we collect feedback thebetter
+								we can build.
+							</li>
+							<li>
+								Collaborating early with dev. Discussing early
+								helps in avoiding any challenges, because there
+								might be things that may not be easilydeveloped,
+								but we (designers) think in a different way,
+								it’s always better to communicate early.
+							</li>
+						</ul>
+					</li>
+					<li>
+						There are immense thing we I learned in the overall
+						process, talking a few here -
+						<ul>
+							<li>
+								Data helps in making decisions, as we track data
+								from the first time itself, it helps us to know
+								where we could make changes, that are helpful
+								for users
+							</li>
+							<li>
+								Learned how to effectively collaborate with
+								different cross-functional team.
+							</li>
+							<li>
+								Started thinking from user perespective’s,
+								during UT calls, I learned how to empathize and
+								think from their prespectives
+							</li>
+							<li>
+								Building for all users, we tried to check
+								accessiblity at every stage, just to make sure
+								we’re not leaving any users behind us :)
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+
+			<footer>
+				<h2>
+					Saying from experience, it’s always good to connect. Let’s
+					Connect!
+				</h2>
+
+				<div class="social">
+					<div class="icons">
+						<ul>
+							<li>
+								<a
+									target="_blank"
+									href="https://twitter.com/shubham_807"
+									><i class="fab fa-twitter icon"></i
+								></a>
+							</li>
+							<li>
+								<a
+									target="_blank"
+									href="https://www.linkedin.com/in/shubhamsingla/"
+									><i class="fab fa-linkedin-in icon"></i
+								></a>
+							</li>
+							<li>
+								<a
+									target="_blank"
+									href="mailto:Shubhamsingla807@gmail.com"
+									><i class="fas fa-envelope icon"></i
+								></a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</footer>
+		</main>
+		<script src="./js/dsc.js"></script>
+
+		<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 		<script>
-			let input = document.getElementById("pass");
-			document.getElementById("submit").addEventListener("click", () => {
-				let text = input.value;
-				if (text === "") {
-					document.getElementById("wrong").style.display = "initial";
-					document.getElementById("wrong").innerText =
-						"Please enter the password";
-				} else {
-					document.getElementById("wrong").innerText =
-						"Incorrect Password!";
-					setTimeout(() => {
-						document.getElementById("wrong").style.display =
-							"initial";
-					}, 500);
-				}
-			});
 			document
 				.getElementsByClassName("left-section")[0]
 				.addEventListener("click", () => {
 					window.open("./index.html", "_top");
 				});
+
+			AOS.init();
 		</script>
 	</body>
 </html>
