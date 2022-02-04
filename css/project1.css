@@ -7,6 +7,9 @@
 	box-sizing: border-box;
 	scroll-behavior: smooth;
 }
+img {
+	cursor: pointer;
+}
 
 .dot {
 	color: #959595;
