@@ -25,6 +25,13 @@
 img {
 	cursor: pointer;
 }
+.section1-dot {
+	color: #959595;
+	font-size: xx-large;
+	margin: 0 10px;
+	display: block;
+	margin-top: -15px;
+}
 .dot {
 	color: #959595;
 	font-size: xx-large;
@@ -52,7 +59,7 @@ body {
 	font-family: "Poppins", sans-serif;
 	width: 100vw;
 	overflow-x: hidden;
-	font-size: 18px;
+	font-size: 16px;
 	scroll-behavior: smooth;
 }
 
@@ -287,13 +294,14 @@ ol,
 ul {
 	margin-left: 20px;
 	color: #000000;
-	/* font-size: 0.8rem; */
+	font-size: 0.9rem;
 	margin-top: 14px;
 }
 
 .process-image {
 	width: 100%;
 	margin: 30px auto;
+	margin-bottom: 10px;
 }
 
 .process-image img {
@@ -310,6 +318,7 @@ ul {
 
 .section2 p {
 	margin-top: 16px;
+	font-size: 1rem;
 }
 
 .section2 img {
@@ -323,22 +332,16 @@ ul {
 }
 
 .section3 p {
-	font-size: 0.9rem;
+	font-size: 1rem;
 }
 
 .section3 ul {
-	margin: 30px 20px;
-	font-size: 0.9rem;
+	margin: 24px 20px;
+	font-size: 1rem;
 }
 
 .section3 li {
 	margin-top: 8px;
-}
-
-body .img-text {
-	text-align: center;
-	font-size: 0.8rem;
-	margin-bottom: 10px;
 }
 
 .insights-container {
@@ -359,6 +362,7 @@ body .img-text {
 
 .one-insight h5 {
 	margin-bottom: 10px;
+	font-size: 1rem;
 }
 
 /* ----------------------- section 5 --------------------- */
@@ -368,12 +372,12 @@ body .img-text {
 }
 
 .section5 p {
-	font-size: 0.9rem;
+	font-size: 1rem;
 }
 
 .section5 ul {
-	margin: 30px 20px;
-	font-size: 0.9rem;
+	margin: 24px 20px;
+	font-size: 1rem;
 }
 
 .section5 li {
@@ -402,12 +406,12 @@ body .img-text {
 }
 
 .section6 p {
-	font-size: 0.9rem;
+	font-size: 1rem;
 }
 
 .section6 ul {
-	margin: 30px 20px;
-	font-size: 0.9rem;
+	margin: 24px 20px;
+	font-size: 1rem;
 }
 
 .section6 li {
@@ -440,12 +444,12 @@ body .img-text {
 }
 
 .section7 p {
-	font-size: 0.9rem;
+	font-size: 1rem;
 }
 
 .section7 ul {
-	margin: 30px 20px;
-	font-size: 0.9rem;
+	margin: 24px 20px;
+	font-size: 1rem;
 }
 
 .section7 li {
@@ -484,12 +488,12 @@ body .img-text {
 }
 
 .section8 p {
-	font-size: 0.9rem;
+	font-size: 1rem;
 }
 
 .section8 ul {
-	margin: 30px 20px;
-	font-size: 0.9rem;
+	margin: 24px 20px;
+	font-size: 1rem;
 }
 
 .section8 li {
@@ -502,12 +506,12 @@ body .img-text {
 }
 
 .section9 p {
-	font-size: 0.9rem;
+	font-size: 1rem;
 }
 
 .section9 ul {
-	margin: 30px 20px;
-	font-size: 0.9rem;
+	margin: 24px 20px;
+	font-size: 1rem;
 }
 
 .section9 li {
@@ -626,6 +630,12 @@ footer ul li:nth-child(3) a:before {
 	color: #000000;
 	margin-bottom: 10px;
 	font-size: 16px;
+}
+
+body .img-text {
+	text-align: center;
+	font-size: 0.8rem;
+	margin-bottom: 10px;
 }
 
 /* slides */
